@@ -1,0 +1,4 @@
+*.pyc
+.settings/
+*project
+common/local_settings.py
