@@ -6,7 +6,6 @@ Created on 17 nov. 2012
 '''
 
 from django import forms
-from .models import ObjectifParticulier
 
 
 class ObjectifParticulierAdminForm(forms.ModelForm):

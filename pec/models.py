@@ -40,7 +40,13 @@ class Domaine(models.Model):
     def __str__(self):
         return '{0} -{1}'.format(self.code, self.nom)
     
+class TypeCompetence(models.Model):
+    nom = models.CharField(max_length=80)
     
+    def __str__(self):
+        return self.nom
+    
+       
         
 class Competence(models.Model):
     PROF = 'professionnelles'
@@ -66,6 +72,7 @@ class Competence(models.Model):
 
 class CompetenceTransversale(models.Model):
     nom = models.CharField(max_length=150)
+    type = models.ForeignKey(TypeCompetence, default=None, blank=False, null=True)
     
     class Meta:
         verbose_name = 'Comp. transversale'
@@ -123,8 +130,9 @@ class Cursus(models.Model):
     
 class Cours(models.Model):
     nom = models.CharField(max_length=40, blank=False)
-    objectifs_evaluateurs = models.ManyToManyField(ObjectifEvaluateur)
+    objectifs_evaluateurs = models.ManyToManyField(ObjectifEvaluateur,blank=True)
     cursus = models.ForeignKey(Cursus, null=True, on_delete = models.SET_NULL)
+    type = models.CharField(max_length=30, blank=True)
     periode = models.IntegerField()
     nbre_note = models.IntegerField()
     
@@ -136,7 +144,7 @@ class Cours(models.Model):
     def __str__(self):
         return '{0} - {1}'.format(self.cursus.code, self.nom)
      
-     
+    
      
      
             

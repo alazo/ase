@@ -19,7 +19,14 @@ from pec import views
 
 
 urlpatterns = [
+     url(r'^$', views.HomeView.as_view(), name='home'),
     url(r'^admin/', admin.site.urls),
     url('^tri_opar', views.TriOPar),
     url('^tri_oeva', views.TriOEva),
+    url('^comp_prof_liste$', views.CompetenceProfListView.as_view(), name='competence-prof-liste'),
+    url('^comp_prof/(?P<pk>\d+)$', views.CompetenceProfView.as_view(), name='competence-prof'),
+    url('^comp_metho/(?P<pk>\d+)$', views.CompetenceMethoView.as_view(), name='competence-metho'),
+    url('^comp_perso/(?P<pk>\d+)$', views.CompetencePersoView.as_view(), name='competence-perso'),
+    url('^obj_eval$', views.ObjectifParticulierListView.as_view(), name='obj-eval-liste'),
+    url('^json_objeval/(?P<pk>\d+)$', views.json_objeval),
 ]

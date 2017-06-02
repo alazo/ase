@@ -2,7 +2,7 @@ from django.contrib import admin
 
 from .models import (Domaine, Competence, ObjectifParticulier, ObjectifEvaluateur,
                      Orientation, Taxonomie, CompetenceTransversale,
-                     Cursus, Cours)
+                     Cursus, Cours, TypeCompetence)
 from .forms import ObjectifParticulierAdminForm
 # Register your models here.
 
@@ -11,8 +11,13 @@ class DomainAdmin(admin.ModelAdmin):
     pass
 
 class ObjectifEvaluateurAdmin(admin.ModelAdmin):
-    list_display = ('code', 'orientation', 'nom', 'objectif_particulier')
+    search_fields = ('nom',)
+    list_display = ('code', 'orientation', 'nom', 'taxonomie')
     
+    list_filter = ('orientation',)
+    
+    class Meta:
+        ordering = ('tri',)
 
 class ObjectifParticulierAdmin(admin.ModelAdmin):
     model = ObjectifParticulier
@@ -30,3 +35,4 @@ admin.site.register(ObjectifEvaluateur, ObjectifEvaluateurAdmin)
 admin.site.register(CompetenceTransversale)
 admin.site.register(Cursus)
 admin.site.register(Cours)
+admin.site.register(TypeCompetence)

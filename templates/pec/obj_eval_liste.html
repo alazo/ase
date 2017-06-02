@@ -1,0 +1,51 @@
+{% extends "./base_site.html" %}
+{% load i18n static %}
+
+{% block coltype %}colMS{% endblock %}
+
+{% block content %}
+
+<script type="text/javascript">
+$(document).ready(function(){
+    $("#obp_selector").on('change', function(){
+    	$.ajax({
+    	    url : 'json_objeval/' + $(this).val(),
+    	    type : 'GET',
+    	    //data : 'id=' + $(this).val(),
+    	    dataType : 'json',
+    	    success : function(code_html, statut){
+    	           //$(code_html).appendTo("#test"); // On passe code_html à jQuery() qui va nous créer l'arbre DOM !
+    	           alert(code_html);
+    	       }
+    	    });        
+    });
+    });
+
+</script>
+
+
+<div id="content-main">
+<h1>Compétences professionnelles</h1>
+<select id="obp_selector">
+{% for obj in object_list %}
+<option value={{obj.id}}>{{obj.code}} - {{obj.nom}}</option>
+{% endfor %}
+</select >
+
+<div id="test"></div>
+<div id="table-oev">
+<table >
+<tr>
+<th width="130px">Code</th><th>Nom</th><th>Taxonomie</th>
+{% for comp in object_list %}
+<tr>
+<td>{{comp.code}}-{{comp.orientation.nom}}</td><td>{{comp.nom}}</a></td><td align="center">{{comp.taxonomie}}</td>
+</tr>
+{% endfor %}
+</table>
+</div>
+
+</div>
+{% endblock %}
+
+
