@@ -33,13 +33,24 @@ class Domaine(models.Model):
     code = models.CharField(max_length=8, blank=False)
     nom = models.CharField(max_length=100, blank=False, unique=True)
     descr = models.TextField(default='', blank=True, verbose_name='description')
-
+    couleur = models.CharField(max_length=10, default='', blank=True)
+    
     class Meta:
         ordering = ('code',)
         
     def __str__(self):
         return '{0} -{1}'.format(self.code, self.nom)
     
+    def cours_annee_1(self):
+        return self.cours_set.filter(cursus=1)
+    
+    def cours_annee_2(self):
+        return self.cours_set.filter(cursus=2)
+    
+    def cours_annee_3(self):
+        return self.cours_set.filter(cursus=3)
+        
+        
 class TypeCompetence(models.Model):
     nom = models.CharField(max_length=80)
     
@@ -135,6 +146,8 @@ class Cours(models.Model):
     type = models.CharField(max_length=30, blank=True)
     periode = models.IntegerField()
     nbre_note = models.IntegerField()
+    domaine = models.ForeignKey(Domaine, default=None,  null=True, on_delete = models.SET_NULL)
+    careum = models.CharField(max_length=10, default='')
     
     class Meta:
         unique_together = ('cursus', 'nom')

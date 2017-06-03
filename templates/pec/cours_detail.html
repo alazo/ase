@@ -1,0 +1,38 @@
+{% extends "./base_site.html" %}
+{% load i18n static %}
+
+{% block coltype %}colMS{% endblock %}
+
+{% block content %}
+
+<div id="content-main">
+<h1>{{object.nom}}</h1>
+<table>
+<tr><th width="200px">Domaine</th><td>{{object.domaine.nom}}</td></tr>
+<tr><th>Compétence(s) travaillées()</th><td>
+{% for c in object.domaine.competence_set.all %}
+<p>{{c.code}} - {{c.nom}}</p>
+{% endfor %}</td></tr>
+<tr><th>Durée</th><td>{{object.periode}} pér.</td></tr>
+<tr><th>Cursus</th><td>{{object.cursus}}</td></tr>
+<tr><th>Evaluation(s)</th><td>{{object.nbre_note}}</td></tr>
+<tr><th>Careum</th><td>{{object.careum}}</td></tr>
+<tr><th>Obj. évaluateurs</th><td>
+<table>
+{% for oeva in object.objectifs_evaluateurs.all %}
+{% if oeva.orientation.nom == 'Global' or oeva.orientation.nom == 'Gén.'  %}
+	<tr><td>{{ oeva.code }} - {{oeva.orientation.nom}} :</td><td>{{ oeva.nom }} </td></tr>
+{% endif %}	
+{% endfor %}
+</table>
+
+ </td></tr>
+</table>
+
+
+<br/>
+
+</div>
+{% endblock %}
+
+

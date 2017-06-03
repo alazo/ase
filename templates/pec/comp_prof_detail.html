@@ -10,23 +10,24 @@
     $( "#accordion" ).accordion();
   } );
   </script>
+  
 <div id="content-main">
-<h1>Compétence professionnelle</h1>
+<h1>Compétences professionnelles</h1>
 <h2>{{object.code}} - {{object.nom}}</h2>
 <br/>
 <h2>Objectifs particuliers</h3>
 
 <div id="accordion">
 {% for opa in object.objectifparticulier_set.all %}
-<h3 style="font-size:110%;">{{opa.code}} - {{opa.nom}}</h3>
+<h3>{{opa.code}} - {{opa.nom}}</h3>
 <div>
-<ul>
+<table>
 {% for oev in opa.objectifevaluateur_set.all %}
 {% if oev.orientation.nom == 'Global' or oev.orientation.nom == 'Gén.'  %}
-<li>{{oev.code}}&nbsp;&nbsp;{{oev.orientation.nom}} : &nbsp;{{oev.nom}} - ({{oev.taxonomie}})</li>
+<tr><td width="100px">{{oev.code}}&nbsp;&nbsp;{{oev.orientation.nom}}</td><td>{{oev.nom}} - ({{oev.taxonomie}})</td></tr>
 {% endif %}
 {% endfor %}
-</ul>
+</table>
 </div>
 {% endfor %}
 </div>

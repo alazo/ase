@@ -23,6 +23,9 @@ class ObjectifParticulierAdmin(admin.ModelAdmin):
     model = ObjectifParticulier
     form = ObjectifParticulierAdminForm   
 
+class CoursAdmin(admin.ModelAdmin):
+    list_display = ('nom', 'careum', 'cursus', 'domaine')
+    list_filter = ('cursus',)
 
     
 admin.site.register(Orientation)
@@ -34,5 +37,5 @@ admin.site.register(ObjectifParticulier, ObjectifParticulierAdmin)
 admin.site.register(ObjectifEvaluateur, ObjectifEvaluateurAdmin)
 admin.site.register(CompetenceTransversale)
 admin.site.register(Cursus)
-admin.site.register(Cours)
+admin.site.register(Cours, CoursAdmin)
 admin.site.register(TypeCompetence)

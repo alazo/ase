@@ -27,6 +27,7 @@ urlpatterns = [
     url('^comp_prof/(?P<pk>\d+)$', views.CompetenceProfView.as_view(), name='competence-prof'),
     url('^comp_metho/(?P<pk>\d+)$', views.CompetenceMethoView.as_view(), name='competence-metho'),
     url('^comp_perso/(?P<pk>\d+)$', views.CompetencePersoView.as_view(), name='competence-perso'),
+    url('^cours/(?P<pk>\d+)$', views.CoursDetailView.as_view(), name='cours'),
     url('^obj_eval$', views.ObjectifParticulierListView.as_view(), name='obj-eval-liste'),
     url('^json_objeval/(?P<pk>\d+)$', views.json_objeval),
 ]
