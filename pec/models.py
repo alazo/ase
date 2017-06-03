@@ -33,6 +33,7 @@ class Domaine(models.Model):
     code = models.CharField(max_length=8, blank=False)
     nom = models.CharField(max_length=100, blank=False, unique=True)
     descr = models.TextField(default='', blank=True, verbose_name='description')
+    abrev = models.CharField(max_length=10, blank=True, verbose_name='abréviation')
     couleur = models.CharField(max_length=10, default='', blank=True)
     
     class Meta:
