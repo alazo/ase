@@ -24,7 +24,7 @@ class ObjectifParticulierAdmin(admin.ModelAdmin):
     form = ObjectifParticulierAdminForm   
 
 class CoursAdmin(admin.ModelAdmin):
-    list_display = ('nom', 'careum', 'cursus', 'domaine')
+    list_display = ('nom', 'periode', 'careum', 'cursus', 'domaine')
     list_filter = ('cursus',)
 
     

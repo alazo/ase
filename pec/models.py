@@ -141,6 +141,7 @@ class Cursus(models.Model):
     
 class Cours(models.Model):
     nom = models.CharField(max_length=40, blank=False)
+    descr = models.TextField(blank=True, verbose_name='description')
     objectifs_evaluateurs = models.ManyToManyField(ObjectifEvaluateur,blank=True)
     cursus = models.ForeignKey(Cursus, null=True, on_delete = models.SET_NULL)
     type = models.CharField(max_length=30, blank=True)
