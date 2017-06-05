@@ -24,8 +24,8 @@ class ObjectifParticulierAdmin(admin.ModelAdmin):
     form = ObjectifParticulierAdminForm   
 
 class CoursAdmin(admin.ModelAdmin):
-    list_display = ('nom', 'periode', 'careum', 'cursus', 'domaine')
-    list_filter = ('cursus',)
+    list_display = ('nom', 'periode', 'careum', 'cursus_txt', 'domaine')
+    list_filter = ('formation', 'domaine')
 
     
 admin.site.register(Orientation)

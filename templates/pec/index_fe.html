@@ -1,0 +1,42 @@
+{% extends "./base_site.html" %}
+{% load i18n static %}
+
+{% block coltype %}colMS{% endblock %}
+
+{% block content %}
+
+<div id="content-main">
+<table id="tb_title" width="100%">
+<tr><td><h1>Formation en entreprise: plan d'études</h1></td>
+<td class="toggle"><a href="{% url 'index-mp' %}">> MPI</a></td></tr></table>
+
+
+<table id="plan">
+<tr>
+	<th width="350px">Domaines</th>
+	<th width="400px">Année 1</th>
+	<th width="400px">Année 2</th>
+	<th width="400px">Année 3</th>
+</tr>
+{% for d in object_list %}
+<tr>
+	<td class="l{{d.id}} d" ><a href="{% url 'competence-prof-liste' %}">{{ d.nom }}</a></td>
+	<td class="l{{d.id}}" >{% for c in d.cours_fe_annee_1 %}
+		{% if d.abrev == "DOMSPE" %}<a href="{% url 'seminaire' %}">{{ c.nom }} ({{ c.periode }} pér.)</a><br/>{% else %}
+		<a href="{% url 'cours' c.id %}">{{ c.nom }} ({{ c.periode }} pér.)</a><br/>{% endif %}{% endfor %}</td>
+	
+	<td class="l{{d.id}}" >{% for c in d.cours_fe_annee_2 %}
+		{% if d.abrev == "DOMSPE" %}<a href="{% url 'seminaire' %}">{{ c.nom }} ({{ c.periode }} pér.)</a><br/>{% else %}
+		<a href="{% url 'cours' c.id %}">{{ c.nom }} ({{ c.periode }} pér.)</a><br/>{% endif %}{% endfor %}</td>
+	
+	<td class="l{{d.id}}" >{% for c in d.cours_fe_annee_3 %}<a href="{% url 'cours' c.id %}">{{ c.nom }} ({{ c.periode }} pér.)</a><br/>{% endfor %}</td>
+</tr>
+{% endfor %}
+
+</table>
+<br/>
+
+</div>
+{% endblock %}
+
+

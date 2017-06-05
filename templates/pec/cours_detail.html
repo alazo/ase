@@ -7,17 +7,17 @@
 
 <div id="content-main">
 <h1>{{object.nom}}</h1>
-<table>
+<table >
 <tr><th width="200px">Domaine</th><td>{{object.domaine.nom}}</td></tr>
 <tr><th>Compétence(s) travaillées()</th><td>
 {% for c in object.domaine.competence_set.all %}
 <p>{{c.code}} - {{c.nom}}</p>
 {% endfor %}</td></tr>
 <tr><th>Durée</th><td>{{object.periode}} pér.</td></tr>
-<tr><th>Cursus</th><td>{{object.cursus}}</td></tr>
+<tr><th>Cursus</th><td>{{object.cursus_txt}}</td></tr>
 <tr><th>Evaluation(s)</th><td>{{object.nbre_note}}</td></tr>
 <tr><th>Careum</th><td>{{object.careum}}</td></tr>
-<tr><th>Obj. évaluateurs</th><td>
+<tr><th>Obj. évaluateurs</th><td style="padding:0;spacing:0">
 <table>
 {% for oeva in object.objectifs_evaluateurs.all %}
 {% if oeva.orientation.nom == 'Global' or oeva.orientation.nom == 'Gén.'  %}

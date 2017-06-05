@@ -6,7 +6,7 @@ Created on 17 nov. 2012
 '''
 
 from django import forms
-
+from .models import Cours
 
 class ObjectifParticulierAdminForm(forms.ModelForm):
     def __init__(self, *args, **kwargs):
@@ -18,3 +18,15 @@ class ObjectifParticulierAdminForm(forms.ModelForm):
         widgets = {
             'nom': forms.Textarea(attrs={'cols': 125, 'rows':2}),
             } 
+
+
+class CoursProfAdminForm(forms.ModelForm):
+    
+    class Meta:
+        model = Cours
+        fields = ('nom', 'descr', 'domaine', 'periode', 'nbre_note')
+    
+    
+    def __init__(self, *args, **kwargs):
+        super(CoursProfAdminForm, self).__init__(*args, **kwargs)
+        

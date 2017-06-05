@@ -1,0 +1,60 @@
+{% extends "./base_site.html" %}
+{% load i18n static %}
+
+{% block coltype %}colMS{% endblock %}
+
+{% block content %}
+
+<div id="content-main">
+<table id="tb_title" width="85%">
+<tr><td><h1>Formation avec matu. prof. intégrée: répartition des cours</h1></td>
+<td class="toggle"><a href="{% url 'periode-fe' %}">> FE</a></td></tr></table>
+
+<table id="tb_periode">
+<tr><th>Année 1</th><th>Année 2</th><th>Année 3</th></tr>
+<tr>
+<td class="n">
+<table>
+{% for c in cours1 %}<tr><td class="w"><a href="{% url 'cours' c.id %}">{{ c.nom }}</a></td><td class="r">{{ c.periode }} pér.</td><td>&nbsp;</td></tr>{% endfor %}
+</table>
+</td>
+<td class="n">
+<table>
+{% for c in cours2 %}<tr><td class="w"><a href="{% url 'cours' c.id %}">{{ c.nom }}</a></td><td class="r">{{ c.periode }} pér.</td><td>&nbsp;</td></tr>{% endfor %}
+</table>
+</td>
+<td class="n">
+<table>
+{% for c in cours3 %}<tr><td class="w"><a href="{% url 'cours' c.id %}">{{ c.nom }}</a></td><td class="r">{{ c.periode }} pér.</td><td>&nbsp;</td></tr>{% endfor %}
+</table>
+</td>
+</tr>
+
+<tr style="font-weight:bold;">
+<td class="n">
+<table>
+<tr><td class="w">Total annuel</td><td class="r">{{ tot1 }} pér.</td><td>&nbsp;</td></tr>
+</table>
+</td>
+<td class="n">
+<table>
+<tr><td class="w">Total annuel</td><td class="r">{{ tot2 }} pér.</td><td>&nbsp;</td></tr>
+</table>
+</td>
+<td class="n">
+<table>
+<tr><td class="w">Total annuel</td><td class="r">{{ tot3 }} pér.</td><td>&nbsp;</td></tr>
+</table>
+</td>
+</tr>
+<tr>
+<td colspan="3" style="text-align:center;font-weight:bold;">Total de la formation: {{ tot }} pér.</td>
+</tr>
+</table>
+
+<br/>
+
+</div>
+{% endblock %}
+
+

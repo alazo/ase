@@ -42,16 +42,25 @@ class Domaine(models.Model):
     def __str__(self):
         return '{0} -{1}'.format(self.code, self.nom)
     
-    def cours_annee_1(self):
-        return self.cours_set.filter(cursus=1)
+    def cours_fe_annee_1(self):
+        return self.cours_set.filter(pec=1).exclude(index_published=False)
     
-    def cours_annee_2(self):
-        return self.cours_set.filter(cursus=2)
+    def cours_fe_annee_2(self):
+        return self.cours_set.filter(pec=2).exclude(index_published=False)
     
-    def cours_annee_3(self):
-        return self.cours_set.filter(cursus=3)
+    def cours_fe_annee_3(self):
+        return self.cours_set.filter(pec=3)
         
-        
+    def cours_mp_annee_1(self):
+        return self.cours_set.filter(pec=4).exclude(index_published=False)
+    
+    def cours_mp_annee_2(self):
+        return self.cours_set.filter(pec=5).exclude(index_published=False)
+    
+    def cours_mp_annee_3(self):
+        return self.cours_set.filter(pec=6)    
+    
+    
 class TypeCompetence(models.Model):
     nom = models.CharField(max_length=80)
     
@@ -144,22 +153,29 @@ class Cours(models.Model):
     nom = models.CharField(max_length=40, blank=False)
     descr = models.TextField(blank=True, verbose_name='description')
     objectifs_evaluateurs = models.ManyToManyField(ObjectifEvaluateur,blank=True)
-    cursus = models.ForeignKey(Cursus, null=True, on_delete = models.SET_NULL)
     type = models.CharField(max_length=30, blank=True)
     periode = models.IntegerField()
     nbre_note = models.IntegerField()
     domaine = models.ForeignKey(Domaine, default=None,  null=True, on_delete = models.SET_NULL)
     careum = models.CharField(max_length=10, default='')
+    pec = models.ManyToManyField(Cursus, blank=True)
+    formation = models.CharField(max_length=10, blank=True)
+    index_published = models.BooleanField(default=True)
+    
+    #cursus = models.CharField(max_length=20, blank=True)
     
     class Meta:
-        unique_together = ('cursus', 'nom')
+        #unique_together = ('nom', 'periode')
         ordering = ('nom',)
         verbose_name_plural = 'Cours'
          
     def __str__(self):
-        return '{0} - {1}'.format(self.cursus.code, self.nom)
+        return '{0} - {1}'.format(self.formation, self.nom)
      
-    
+    def cursus_txt(self):
+        foo = [x.code for x in self.pec.all()]
+        print(','.join(foo))
+        return ', '.join(foo)
      
      
             
