@@ -25,7 +25,7 @@ class ObjectifParticulierAdmin(admin.ModelAdmin):
 
 class CoursAdmin(admin.ModelAdmin):
     list_display = ('nom', 'periode', 'careum', 'cursus_txt', 'domaine')
-    list_filter = ('formation', 'domaine')
+    list_filter = ('cursus', 'domaine')
 
     
 admin.site.register(Orientation)

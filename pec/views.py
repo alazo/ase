@@ -12,7 +12,6 @@ def TriOPar(self):
     
     for op in ObjectifParticulier.objects.all():
         src = op.code.split('.')
-        print(src)
         op.tri = int(src[0])* 100 + int(src[1])
         op.save()
 
@@ -74,7 +73,6 @@ class CompetenceProfListView(ListView):
     template_name = 'pec/comp_prof_liste.html'
 
 
-    
 class ObjectifParticulierListView(ListView):
     model = ObjectifParticulier
     template_name = 'pec/obj_eval_liste.html'
@@ -85,9 +83,9 @@ class PeriodeFEView(TemplateView):
     
     def get_context_data(self, **kwargs):
         context = super(PeriodeFEView, self).get_context_data(**kwargs)   
-        context['cours1'] = Cours.objects.filter(pec__code='1FE').exclude(index_published=False)
-        context['cours2'] = Cours.objects.filter(pec__code='2FE').exclude(index_published=False)
-        context['cours3'] = Cours.objects.filter(pec__code='3FE').exclude(index_published=False)
+        context['cours1'] = Cours.objects.filter(cursus__code='1FE').exclude(index_published=False)
+        context['cours2'] = Cours.objects.filter(cursus__code='2FE').exclude(index_published=False)
+        context['cours3'] = Cours.objects.filter(cursus__code='3FE').exclude(index_published=False)
         context['tot1'] = context['cours1'].aggregate(Sum(F('periode')))['periode__sum'] 
         context['tot2'] = context['cours2'].aggregate(Sum(F('periode')))['periode__sum'] 
         context['tot3'] = context['cours3'].aggregate(Sum(F('periode')))['periode__sum'] 
@@ -100,9 +98,9 @@ class PeriodeMPView(TemplateView):
     
     def get_context_data(self, **kwargs):
         context = super(PeriodeMPView, self).get_context_data(**kwargs)   
-        context['cours1'] = Cours.objects.filter(pec__code='1MP').exclude(index_published=False)
-        context['cours2'] = Cours.objects.filter(pec__code='2MP').exclude(index_published=False)
-        context['cours3'] = Cours.objects.filter(pec__code='3MP').exclude(index_published=False)
+        context['cours1'] = Cours.objects.filter(cursus__code='1MP').exclude(index_published=False)
+        context['cours2'] = Cours.objects.filter(cursus__code='2MP').exclude(index_published=False)
+        context['cours3'] = Cours.objects.filter(cursus__code='3MP').exclude(index_published=False)
         context['tot1'] = context['cours1'].aggregate(Sum(F('periode')))['periode__sum'] 
         context['tot2'] = context['cours2'].aggregate(Sum(F('periode')))['periode__sum'] 
         context['tot3'] = context['cours3'].aggregate(Sum(F('periode')))['periode__sum'] 

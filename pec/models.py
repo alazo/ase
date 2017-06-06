@@ -43,22 +43,22 @@ class Domaine(models.Model):
         return '{0} -{1}'.format(self.code, self.nom)
     
     def cours_fe_annee_1(self):
-        return self.cours_set.filter(pec=1).exclude(index_published=False)
+        return self.cours_set.filter(cursus=1).exclude(index_published=False)
     
     def cours_fe_annee_2(self):
-        return self.cours_set.filter(pec=2).exclude(index_published=False)
+        return self.cours_set.filter(cursus=2).exclude(index_published=False)
     
     def cours_fe_annee_3(self):
-        return self.cours_set.filter(pec=3)
+        return self.cours_set.filter(cursus=3).exclude(index_published=False)
         
     def cours_mp_annee_1(self):
-        return self.cours_set.filter(pec=4).exclude(index_published=False)
+        return self.cours_set.filter(cursus=4).exclude(index_published=False)
     
     def cours_mp_annee_2(self):
-        return self.cours_set.filter(pec=5).exclude(index_published=False)
+        return self.cours_set.filter(cursus=5).exclude(index_published=False)
     
     def cours_mp_annee_3(self):
-        return self.cours_set.filter(pec=6)    
+        return self.cours_set.filter(cursus=6).exclude(index_published=False)    
     
     
 class TypeCompetence(models.Model):
@@ -70,15 +70,7 @@ class TypeCompetence(models.Model):
        
         
 class Competence(models.Model):
-    PROF = 'professionnelles'
-    METHODO = 'méthodologiques'
-    PERSO = 'sociales et personnelles'
-    
-    CHOIX_TYPE_COMPETENCE = (
-        (PROF, 'professionnlles.'),
-        (METHODO, 'méthodologiques'),
-        (PERSO, 'sociales et personnelles'))
-
+    """Compétence de base selon PEC """
     code = models.CharField(max_length=8, blank=False)
     nom = models.CharField(max_length=150, blank=True )
     descr = models.TextField(default='', blank=True, verbose_name='description') 
@@ -91,7 +83,9 @@ class Competence(models.Model):
     def __str__(self):
         return '{0} -{1}'.format(self.code, self.nom)
 
+
 class CompetenceTransversale(models.Model):
+    """Compétence transversale selon PEC-ASE (méthodologiques et personnelles)"""
     nom = models.CharField(max_length=150)
     type = models.ForeignKey(TypeCompetence, default=None, blank=False, null=True)
     
@@ -102,9 +96,9 @@ class CompetenceTransversale(models.Model):
     def __str__(self):
         return self.nom    
     
-    
-    
+      
 class ObjectifParticulier(models.Model):
+    """Objectif particulier selon PEC-ASE (24 obj. part.)"""
     tri = models.IntegerField(default=0)
     code = models.CharField(max_length=8, blank=False)
     nom = models.CharField(max_length=250, blank=True )
@@ -121,6 +115,9 @@ class ObjectifParticulier(models.Model):
     
     
 class ObjectifEvaluateur(models.Model):
+    """Objectif éval. selon PEC-ASE (278 obj. part.)
+    Ne garder que les objectifs Globaux et Gén.
+    """
     tri = models.IntegerField(default=0)
     code = models.CharField(max_length=8, blank=False)
     nom = models.TextField(default='', blank=True )
@@ -139,6 +136,9 @@ class ObjectifEvaluateur(models.Model):
         
         
 class Cursus(models.Model):
+    """ Regroupe l'année et dormation et la filière
+        Ex: 1MP, 3FE, etc
+    """
     code = models.CharField(max_length=10, blank=False, unique=True)
      
     def __str__(self):
@@ -150,6 +150,7 @@ class Cursus(models.Model):
 
     
 class Cours(models.Model):
+    """ Cours de la formation ASE"""
     nom = models.CharField(max_length=40, blank=False)
     descr = models.TextField(blank=True, verbose_name='description')
     objectifs_evaluateurs = models.ManyToManyField(ObjectifEvaluateur,blank=True)
@@ -158,8 +159,8 @@ class Cours(models.Model):
     nbre_note = models.IntegerField()
     domaine = models.ForeignKey(Domaine, default=None,  null=True, on_delete = models.SET_NULL)
     careum = models.CharField(max_length=10, default='')
-    pec = models.ManyToManyField(Cursus, blank=True)
-    formation = models.CharField(max_length=10, blank=True)
+    cursus = models.ManyToManyField(Cursus, blank=True)
+    #formation = models.CharField(max_length=10, blank=True)
     index_published = models.BooleanField(default=True)
     
     #cursus = models.CharField(max_length=20, blank=True)
@@ -173,9 +174,8 @@ class Cours(models.Model):
         return '{0} - {1}'.format(self.formation, self.nom)
      
     def cursus_txt(self):
-        foo = [x.code for x in self.pec.all()]
-        print(','.join(foo))
-        return ', '.join(foo)
+        #foo = [x.code for x in self.cursus.all()]
+        return ', '.join([x.code for x in self.cursus.all()])
      
      
             
