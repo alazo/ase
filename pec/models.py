@@ -171,7 +171,7 @@ class Cours(models.Model):
         verbose_name_plural = 'Cours'
          
     def __str__(self):
-        return '{0} - {1}'.format(self.formation, self.nom)
+        return '{0}'.format(self.nom)
      
     def cursus_txt(self):
         #foo = [x.code for x in self.cursus.all()]
