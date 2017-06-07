@@ -11,6 +11,7 @@ from django.db.models import F, Sum
 from reportlab.pdfgen import canvas
 from reportlab.lib.pagesizes import A4, portrait, landscape
 from reportlab.lib.units import cm
+from curses.ascii import TAB
 
 
 def TriOPar(self):
@@ -29,7 +30,24 @@ def TriOEva(self):
         op.tri = int(src[0]) * 10000 + int(src[1])* 100 + int(src[2])
         op.save()
         
-        
+def get_cours_mp(self):
+    """Retourne une liste par année des cours MP"""
+    tab = []
+    tab.append(Cours.objects.filter(cursus__code='1MP').exclude(index_published=False))
+    tab.append(Cours.objects.filter(cursus__code='2MP').exclude(index_published=False))
+    tab.append(Cours.objects.filter(cursus__code='3MP').exclude(index_published=False))
+    
+    return tab
+    
+def get_cours_fe(self):
+    """Retourne une liste par année des cours MP"""
+    tab = []
+    tab.append(Cours.objects.filter(cursus__code='1FE').exclude(index_published=False))
+    tab.append(Cours.objects.filter(cursus__code='2FE').exclude(index_published=False))
+    tab.append(Cours.objects.filter(cursus__code='3FE').exclude(index_published=False))
+    return tab
+    
+            
 class HomeViewFE(ListView):
     model = Domaine
     template_name = 'pec/index_fe.html'
@@ -60,20 +78,7 @@ class CompetenceMethoView(DetailView):
 class CoursDetailView(DetailView):
     model = Cours
     template_name = 'pec/cours_detail.html'
-    
-    """
-    def get_queryset(self):
-        return Domaine.objects.all().exclude(abrev='CIE')
-    """
-    
-    
-    """
-    def get_context_data(self, **kwargs):
-        context = super(CoursDetailView, self).get_context_data(**kwargs)   
-        context['eval'] = self.object.objectifs_evaluateurs.all()
-        return context
-    """
-    
+       
     
 class CompetencePersoView(DetailView):
     model = Competence
@@ -92,39 +97,70 @@ class ObjectifParticulierListView(ListView):
     def get_queryset(self):
         return ObjectifParticulier.objects.all()
 
-
-
-class PeriodeFEView(TemplateView):
-    template_name = 'pec/periode_fe.html'
+    
+class PeriodeView(TemplateView):
+    template_name = 'pec/periode.html'
     
     def get_context_data(self, **kwargs):
-        context = super(PeriodeFEView, self).get_context_data(**kwargs)   
-        context['cours1'] = Cours.objects.filter(cursus__code='1FE').exclude(index_published=False)
-        context['cours2'] = Cours.objects.filter(cursus__code='2FE').exclude(index_published=False)
-        context['cours3'] = Cours.objects.filter(cursus__code='3FE').exclude(index_published=False)
-    
-        context['tot1'] = context['cours1'].aggregate(Sum(F('periode')))['periode__sum'] 
-        context['tot2'] = context['cours2'].aggregate(Sum(F('periode')))['periode__sum'] 
-        context['tot3'] = context['cours3'].aggregate(Sum(F('periode')))['periode__sum'] 
-        context['tot'] = context['tot1'] + context['tot2'] + context['tot3']
-        return context
-
-    
-class PeriodeMPView(TemplateView):
-    template_name = 'pec/periode_mp.html'
-    
-    def get_context_data(self, **kwargs):
-        context = super(PeriodeMPView, self).get_context_data(**kwargs)   
-        context['cours1'] = Cours.objects.filter(cursus__code='1MP').exclude(index_published=False)
-        context['cours2'] = Cours.objects.filter(cursus__code='2MP').exclude(index_published=False)
-        context['cours3'] = Cours.objects.filter(cursus__code='3MP').exclude(index_published=False)
+        context = super(PeriodeView, self).get_context_data(**kwargs) 
+        filiere = self.kwargs['filiere']
+        if filiere == 'MP':
+            context['cours1'] = Cours.objects.filter(cursus__code='1MP').exclude(index_published=False)
+            context['cours2'] = Cours.objects.filter(cursus__code='2MP').exclude(index_published=False)
+            context['cours3'] = Cours.objects.filter(cursus__code='3MP').exclude(index_published=False)
+            context['toggle'] = 'MP'
+            context['formation'] = 'Formation avec matu. prof. intégrée'
+        if filiere == 'FE':
+            context['cours1'] = Cours.objects.filter(cursus__code='1FE').exclude(index_published=False)
+            context['cours2'] = Cours.objects.filter(cursus__code='2FE').exclude(index_published=False)
+            context['cours3'] = Cours.objects.filter(cursus__code='3FE').exclude(index_published=False)
+            context['toggle'] = 'FE'
+            context['formation'] = 'Formation en entreprise'
+            
         context['tot1'] = context['cours1'].aggregate(Sum(F('periode')))['periode__sum'] 
         context['tot2'] = context['cours2'].aggregate(Sum(F('periode')))['periode__sum'] 
         context['tot3'] = context['cours3'].aggregate(Sum(F('periode')))['periode__sum'] 
         context['tot'] = context['tot1'] + context['tot2'] + context['tot3']
         return context   
     
-     
+    
+class PeriodeDomaineView(ListView):
+    model = Domaine
+    template_name = 'pec/periode_domaine.html'
+    
+    def get_context_data(self, **kwargs):
+        filiere = self.kwargs['filiere']
+        context = super(PeriodeDomaineView, self).get_context_data(**kwargs)
+        if filiere == 'MP':
+            exclude_fields = ['ECG', 'EPH']
+            c1 = Cours.objects.filter(cursus__code='1MP').exclude(index_published=False)
+            c2 = Cours.objects.filter(cursus__code='2MP').exclude(index_published=False)
+            c3 = Cours.objects.filter(cursus__code='3MP').exclude(index_published=False)
+            context['formation'] = 'Formation avec matu. prof. intégrée'
+            context['toggle'] = 'MP'
+        if filiere == 'FE':
+            exclude_fields = ['CIE']
+            c1 = Cours.objects.filter(cursus__code='1FE').exclude(index_published=False)
+            c2 = Cours.objects.filter(cursus__code='2FE').exclude(index_published=False)
+            c3 = Cours.objects.filter(cursus__code='3FE').exclude(index_published=False)
+            context['formation'] = 'Formation en entreprise'
+            context['toggle'] = 'FE'
+        
+        dom = []
+        for i, d in enumerate(Domaine.objects.all().exclude(abrev__in=exclude_fields)):              
+            d.tot1 = c1.filter(domaine=d).aggregate(Sum(F('periode')))['periode__sum']
+            d.tot2 = c2.filter(domaine=d).aggregate(Sum(F('periode')))['periode__sum']
+            d.tot3 = c3.filter(domaine=d).aggregate(Sum(F('periode')))['periode__sum'] 
+            dom.append(d)
+        
+        context['dom'] = dom
+        context['a1'] = c1.aggregate(Sum(F('periode')))['periode__sum']
+        context['a2'] = c2.aggregate(Sum(F('periode')))['periode__sum']
+        context['a3'] = c3.aggregate(Sum(F('periode')))['periode__sum']
+        context['aa'] = context['a1'] + context['a2'] + context['a3']
+        return context
+
+             
 class SeminaireView(TemplateView):
     template_name = 'pec/seminaire.html'
     

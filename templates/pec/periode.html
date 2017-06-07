@@ -7,8 +7,12 @@
 
 <div id="content-main">
 <table id="tb_title" width="85%">
-<tr><td><h1>Formation avec matu. prof. intégrée: répartition des cours</h1></td>
+<tr><td><h1>{{ formation }} - répartition des cours</h1></td>
+{% if toggle == 'FE' %}
+<td class="toggle"><a href="{% url 'periode-mp' %}">> MP</a></td></tr></table>
+{% else %}
 <td class="toggle"><a href="{% url 'periode-fe' %}">> FE</a></td></tr></table>
+{% endif %}
 
 <table id="tb_periode">
 <tr><th>Année 1</th><th>Année 2</th><th>Année 3</th></tr>
