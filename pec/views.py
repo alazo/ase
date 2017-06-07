@@ -56,13 +56,14 @@ class CompetenceMethoView(DetailView):
 
 
 class CoursDetailView(DetailView):
-    model = Coursmodel = Domaine
-    template_name = 'pec/index_fe.html'
+    model = Cours
+    template_name = 'pec/cours_detail.html'
     
+    """
     def get_queryset(self):
         return Domaine.objects.all().exclude(abrev='CIE')
-
-    template_name = 'pec/cours_detail.html'
+    """
+    
     
     """
     def get_context_data(self, **kwargs):
@@ -85,10 +86,9 @@ class CompetenceProfListView(ListView):
 class ObjectifParticulierListView(ListView):
     model = ObjectifParticulier
     template_name = 'pec/obj_eval_liste.html'
-    template_name = 'pec/index_fe.html'
-    
+        
     def get_queryset(self):
-        return Domaine.objects.all().exclude(abrev='CIE')
+        return ObjectifParticulier.objects.all()
 
 
 

@@ -43,7 +43,7 @@ class Domaine(models.Model):
         return '{0} -{1}'.format(self.code, self.nom)
     
     def cours_fe_annee_1(self):
-        return self.cours_set.filter(cursus=1).exclude(index_published=False)
+        return self.cours_set.filter(cursus__code='1FE').exclude(index_published=False)
     
     def cours_fe_annee_2(self):
         return self.cours_set.filter(cursus=2).exclude(index_published=False)

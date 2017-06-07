@@ -34,7 +34,7 @@ urlpatterns = [
     url(r'^periode_fe$', views.PeriodeFEView.as_view(), name='periode-fe'),
     url(r'^periode_mp$', views.PeriodeMPView.as_view(), name='periode-mp'),
     url(r'^seminaire$', views.SeminaireView.as_view(), name='seminaire'),
-    url(r'^cours$', views.CoursFEListView.as_view(), name='cours'),
+    url(r'^cours/$', views.CoursFEListView.as_view(), name='cours'),
     url(r'^obj_eval$', views.ObjectifParticulierListView.as_view(), name='obj-eval-liste'),
     url(r'^json_objeval/(?P<pk>\d+)$', views.json_objeval),
     url(r'^pdf$', views.plan_form_fe_pdf),
