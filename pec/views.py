@@ -4,6 +4,8 @@ from django.views.generic import DetailView, ListView, TemplateView
 from .forms import CoursProfAdminForm
 from .models import (Competence, ObjectifParticulier, 
                      ObjectifEvaluateur, Domaine, Cours)
+from pdf.models import  PDFResponse, MyDocTemplateLandscape
+
 from django.http import HttpResponse
 from django.db.models import F, Sum
 from reportlab.pdfgen import canvas
@@ -147,28 +149,42 @@ class CoursAdminView(DetailView):
 
     
 def plan_form_fe_pdf(request): 
-    from io import StringIO
-    from xhtml2pdf import pisa
-    from django.template.loader import get_template
-    from django.template import Context
-    from django.http import HttpResponse
-    from cgi import escape
-    
-    response = HttpResponse(content_type='application/pdf')
-    response['Content-Disposition'] = 'attachment; filename="somefilename.pdf"'
-    
-    context_dict = Domaine.objects.all().exclude(abrev='CIE')
-    template = 'pec/index-fe.html'
-    context = Context({'object_list': context_dict})
-    html  = template.render(context)
-    result = StringIO.StringIO()
+    """Retourne le pdf du plan de formation FE"""
+    from reportlab.platypus import Paragraph, Spacer, PageBreak, Table, TableStyle, Preformatted
+    from reportlab.lib.units import cm
+    from reportlab.lib.enums import TA_LEFT
+    from reportlab.lib import colors
+    from reportlab.lib.colors import HexColor
 
-    pdf = pisa.pisaDocument(StringIO.StringIO(html.encode("UTF-8")), result)
-    if not pdf.err:
-        return HttpResponse(result.getvalue(), content_type='application/pdf')
-    return HttpResponse('We had some errors<pre>%s</pre>' % escape(html))
-               
+    response = PDFResponse('PlanFormation.pdf' ,'Plan de formation', portrait=False)
+
+    table_style = []
+    story = [['Domaine', 'Année1', 'Année 2', 'Année 3']]
+    for row, d in enumerate(Domaine.objects.exclude(abrev='CIE')):
+        c1 = '\n'.join('{0} ({1} pér.)'.format(x.nom, x.periode) for x in d.cours_fe_annee_1())
+        c2 = '\n'.join('{0} ({1} pér.)'.format(x.nom, x.periode) for x in d.cours_fe_annee_2())
+        c3 = '\n'.join('{0} ({1} pér.)'.format(x.nom, x.periode) for x in d.cours_fe_annee_3())
+        story.append([d.nom, c1,c2,c3])
+        color = '{0}'.format(d.couleur[:7])
+        table_style.append(('BACKGROUND',(0,row+1), (3,row+1), HexColor(color)),)
         
+    t = Table(story, colWidths=[6.5*cm, 6.5*cm, 6.5*cm, 6.5*cm], spaceBefore=0.5*cm, spaceAfter=1*cm)
+    table_style.extend([
+        ('SIZE', (0,0), (-1,-1), 8),
+        ('FONT', (0,0), (-1,0), 'Helvetica-Bold'),
+        ('VALIGN',(0,0),(-1,-1),'MIDDLE'),
+        ('ALIGN',(0,0),(-1,-1),'LEFT'),
+        ('GRID',(0,0),(-1,-1), 0.25, colors.black)])
+
+    t.setStyle(TableStyle(table_style))
+                           
+    response.story.append(t)
+        
+    doc = MyDocTemplateLandscape(response)  
+    doc.build(response.story)
+        
+    return response
+    
 
 def json_objeval(request, pk):
     """Retourne les objectifs évaluateurs de l'obj. particulier PK

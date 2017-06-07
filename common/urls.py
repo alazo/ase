@@ -16,7 +16,8 @@ Including another URLconf
 from django.conf.urls import url
 from django.contrib import admin
 from pec import views
-
+from django.conf import settings
+from django.conf.urls.static import static
 
 urlpatterns = [
     url(r'^$', views.HomeViewFE.as_view(), name='home'),
@@ -37,5 +38,5 @@ urlpatterns = [
     url(r'^cours/$', views.CoursFEListView.as_view(), name='cours'),
     url(r'^obj_eval$', views.ObjectifParticulierListView.as_view(), name='obj-eval-liste'),
     url(r'^json_objeval/(?P<pk>\d+)$', views.json_objeval),
-    url(r'^pdf$', views.plan_form_fe_pdf),
-]
+    url(r'^plan_pdf_fe$', views.plan_form_fe_pdf, name='plan-pdf-fe'),
+] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT )

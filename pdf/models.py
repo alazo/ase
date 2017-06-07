@@ -26,17 +26,17 @@ class PDFResponse(HttpResponse):
         self['Content-Disposition'] = 'attachment; filename={0}'.format(filename)
         self['Content-Type'] = 'charset=utf-8'
         self.story = []
-        image = Image(settings.MEDIA_ROOT + '/media/header.png', width=480, height=80)
+        image = Image(settings.MEDIA_ROOT + 'logo.png', width=140, height=80)
         image.hAlign = TA_LEFT
         
         self.story.append(image)
         #self.story.append(Spacer(0,1*cm))
         
-        data = [['Filières EDS', title]]
+        data = [['Formation CFC-ASE - FE', title]]
         if portrait:
             t =  Table(data, colWidths=[8*cm,8*cm])
         else:
-            t =  Table(data, colWidths=[11*cm,11*cm])
+            t =  Table(data, colWidths=[14*cm,11*cm])
         t.setStyle(TableStyle([ ('ALIGN',(0,0),(0,0),'LEFT'),
                                 ('ALIGN',(1,0),(-1,-1),'RIGHT'),
                                 ('LINEABOVE', (0,0) ,(-1,-1), 0.5, colors.black),
