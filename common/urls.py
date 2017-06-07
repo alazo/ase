@@ -38,5 +38,6 @@ urlpatterns = [
     url(r'^cours/$', views.CoursFEListView.as_view(), name='cours'),
     url(r'^obj_eval$', views.ObjectifParticulierListView.as_view(), name='obj-eval-liste'),
     url(r'^json_objeval/(?P<pk>\d+)$', views.json_objeval),
-    url(r'^plan_pdf_fe$', views.plan_form_fe_pdf, name='plan-pdf-fe'),
+    url(r'^plan_pdf_fe$', views.plan_form_pdf, {'filiere':'FE'}, name='plan-pdf-fe'),
+    url(r'^plan_pdf_mp$', views.plan_form_pdf, {'filiere':'MP'}, name='plan-pdf-mp'),
 ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT )

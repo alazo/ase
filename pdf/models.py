@@ -70,7 +70,7 @@ class MyDocTemplate(SimpleDocTemplate):
 class MyDocTemplateLandscape(SimpleDocTemplate):
     
     def __init__(self, name):
-        SimpleDocTemplate.__init__(self, name, pagesize=landscape(A4), topMargin=0*cm, leftMargin=2*cm)
+        SimpleDocTemplate.__init__(self, name, pagesize=landscape(A4), topMargin=0*cm, leftMargin=2*cm, bottomMargin=0.5*cm)
         self.fileName = name
         self.PAGE_WIDTH = A4[1]
         self.PAGE_HEIGHT = A4[0]

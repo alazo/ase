@@ -148,7 +148,7 @@ class CoursAdminView(DetailView):
         return context
 
     
-def plan_form_fe_pdf(request): 
+def plan_form_pdf(request, filiere): 
     """Retourne le pdf du plan de formation FE"""
     from reportlab.platypus import Paragraph, Spacer, PageBreak, Table, TableStyle, Preformatted
     from reportlab.lib.units import cm
@@ -156,21 +156,34 @@ def plan_form_fe_pdf(request):
     from reportlab.lib import colors
     from reportlab.lib.colors import HexColor
 
-    response = PDFResponse('PlanFormation.pdf' ,'Plan de formation', portrait=False)
-
     table_style = []
     story = [['Domaine', 'Année1', 'Année 2', 'Année 3']]
-    for row, d in enumerate(Domaine.objects.exclude(abrev='CIE')):
-        c1 = '\n'.join('{0} ({1} pér.)'.format(x.nom, x.periode) for x in d.cours_fe_annee_1())
-        c2 = '\n'.join('{0} ({1} pér.)'.format(x.nom, x.periode) for x in d.cours_fe_annee_2())
-        c3 = '\n'.join('{0} ({1} pér.)'.format(x.nom, x.periode) for x in d.cours_fe_annee_3())
-        story.append([d.nom, c1,c2,c3])
-        color = '{0}'.format(d.couleur[:7])
-        table_style.append(('BACKGROUND',(0,row+1), (3,row+1), HexColor(color)),)
-        
+    
+    if filiere == 'FE':
+        domaines = Domaine.objects.exclude(abrev='CIE')
+        response = PDFResponse('PlanFormation.pdf' ,'Plan de formation FE', portrait=False)
+            
+        for row, d in enumerate(domaines):
+            c1 = '\n'.join('{0} ({1} pér.)'.format(x.nom, x.periode) for x in d.cours_fe_annee_1())
+            c2 = '\n'.join('{0} ({1} pér.)'.format(x.nom, x.periode) for x in d.cours_fe_annee_2())
+            c3 = '\n'.join('{0} ({1} pér.)'.format(x.nom, x.periode) for x in d.cours_fe_annee_3())
+            story.append([d.nom, c1,c2,c3])
+            color = '{0}'.format(d.couleur[:7])
+            table_style.append(('BACKGROUND',(0,row+1), (3,row+1), HexColor(color)),)
+    else:
+        domaines = Domaine.objects.all().exclude(abrev='ECG').exclude(abrev= 'EPH')
+        response = PDFResponse('PlanFormation.pdf' ,'Plan de formation MPI', portrait=False)
+        for row, d in enumerate(domaines):
+            c1 = '\n'.join('{0} ({1} pér.)'.format(x.nom, x.periode) for x in d.cours_mp_annee_1())
+            c2 = '\n'.join('{0} ({1} pér.)'.format(x.nom, x.periode) for x in d.cours_mp_annee_2())
+            c3 = '\n'.join('{0} ({1} pér.)'.format(x.nom, x.periode) for x in d.cours_mp_annee_3())
+            story.append([d.nom, c1,c2,c3])
+            color = '{0}'.format(d.couleur[:7])
+            table_style.append(('BACKGROUND',(0,row+1), (3,row+1), HexColor(color)),)
+
     t = Table(story, colWidths=[6.5*cm, 6.5*cm, 6.5*cm, 6.5*cm], spaceBefore=0.5*cm, spaceAfter=1*cm)
     table_style.extend([
-        ('SIZE', (0,0), (-1,-1), 8),
+        ('SIZE', (0,0), (-1,-1), 7),
         ('FONT', (0,0), (-1,0), 'Helvetica-Bold'),
         ('VALIGN',(0,0),(-1,-1),'MIDDLE'),
         ('ALIGN',(0,0),(-1,-1),'LEFT'),
@@ -186,6 +199,7 @@ def plan_form_fe_pdf(request):
     return response
     
 
+    
 def json_objeval(request, pk):
     """Retourne les objectifs évaluateurs de l'obj. particulier PK
        et filtre sur les orientation Global et Gén uniquement
