@@ -37,4 +37,5 @@ urlpatterns = [
     url(r'^cours$', views.CoursFEListView.as_view(), name='cours'),
     url(r'^obj_eval$', views.ObjectifParticulierListView.as_view(), name='obj-eval-liste'),
     url(r'^json_objeval/(?P<pk>\d+)$', views.json_objeval),
+    url(r'^pdf$', views.plan_form_fe_pdf),
 ]
