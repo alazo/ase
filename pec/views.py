@@ -3,7 +3,8 @@ from django.views.generic import DetailView, ListView, TemplateView
 # Create your views here.
 from .forms import CoursProfAdminForm
 from .models import (Competence, ObjectifParticulier, 
-                     ObjectifEvaluateur, Domaine, Cours)
+                     ObjectifEvaluateur, Domaine, Cours, Sequence, Document)
+
 from pdf.models import  PDFResponse, MyDocTemplateLandscape
 
 from django.http import HttpResponse
@@ -183,6 +184,19 @@ class CoursAdminView(DetailView):
         context['form'] = CoursProfAdminForm   
         return context
 
+
+class DocumentListView(ListView):
+    model = Document
+    template_name = 'pec/document_list.html'
+    
+    def get_queryset(self):
+        return Document.objects.filter(published=True)
+
+
+class DocumentDetailView(DetailView):
+    model = Document
+    template_name = 'pec/document_detail.html'
+    
     
 def plan_form_pdf(request, filiere): 
     """Retourne le pdf du plan de formation FE"""

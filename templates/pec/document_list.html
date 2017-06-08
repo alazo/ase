@@ -1,0 +1,22 @@
+{% extends "./base_site.html" %}
+{% load i18n static %}
+
+{% block coltype %}colMS{% endblock %}
+
+{% block content %}
+
+<div id="content-main">
+<h1>Documents</h1>
+
+<ul>
+{% for doc in object_list %}
+
+<li><a href="{% url 'document-detail' doc.id %}">{{doc.titre}}</a></li>
+{% empty %}
+<li>Aucun document disponible</li>
+{% endfor %}
+</ul>
+</div>
+{% endblock %}
+
+

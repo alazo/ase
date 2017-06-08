@@ -42,4 +42,6 @@ urlpatterns = [
     url(r'^json_objeval/(?P<pk>\d+)$', views.json_objeval),
     url(r'^plan_pdf_fe$', views.plan_form_pdf, {'filiere':'FE'}, name='plan-pdf-fe'),
     url(r'^plan_pdf_mp$', views.plan_form_pdf, {'filiere':'MP'}, name='plan-pdf-mp'),
+    url(r'^documents$', views.DocumentListView.as_view(), name='documents'),
+    url(r'^document/(?P<pk>\d+)$', views.DocumentDetailView.as_view(), name='document-detail'),
 ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT )

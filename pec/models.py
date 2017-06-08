@@ -176,6 +176,27 @@ class Cours(models.Model):
     def cursus_txt(self):
         #foo = [x.code for x in self.cursus.all()]
         return ', '.join([x.code for x in self.cursus.all()])
+
      
-     
-            
+class Sequence(models.Model):
+    """Séquence pédagogique à l'intérieur d'un cours"""
+    titre = models.CharField(max_length=100, blank=False)
+    cours = models.ForeignKey(Cours, on_delete=models.CASCADE)
+    periode = models.IntegerField(blank=False)
+    contenu = models.TextField(blank=True)
+    objectifs = models.ManyToManyField(ObjectifEvaluateur, blank=True)
+    
+    
+    def __str__(self):
+        return self.titre
+
+    
+class Document(models.Model):
+        
+    path = models.FileField(upload_to='doc/')
+    titre = models.CharField(max_length=100, blank=False)
+    published = models.BooleanField(default=False)
+
+    
+    def __str__(self):
+        return self.titre    
