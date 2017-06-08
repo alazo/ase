@@ -3,3 +3,5 @@
 *project
 common/local_settings.py
 db.*
+scripts/*
+
