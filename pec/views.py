@@ -201,7 +201,7 @@ class CoursAdminView(DetailView):
 
 class DocumentListView(ListView):
     model = Document
-    template_name = 'pec/document_list.html'
+    #template_name = 'pec/document_list.html'
     
     def get_queryset(self):
         return Document.objects.filter(published=True)
