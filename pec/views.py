@@ -30,7 +30,21 @@ def TriOEva(self):
         src = op.code.split('.')
         op.tri = int(src[0]) * 10000 + int(src[1])* 100 + int(src[2])
         op.save()
+
+def SetFormationTxt(request):
+    """
+    remplit le champ cursus_txt du modeèle Cours avec les codes
+    des cursus correspondants.
+    """
+    cours = Cours.objects.all()
+    for c in cours:
+        c.cursus_txt = c.formation()
+        c.save()
         
+    
+    
+    
+            
 def get_cours_mp(self):
     """Retourne une liste par année des cours MP"""
     tab = []

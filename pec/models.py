@@ -160,9 +160,10 @@ class Cours(models.Model):
     domaine = models.ForeignKey(Domaine, default=None,  null=True, on_delete = models.SET_NULL)
     careum = models.CharField(max_length=10, default='')
     cursus = models.ManyToManyField(Cursus, blank=True)
-    #formation = models.CharField(max_length=10, blank=True)
+    cursus_txt = models.CharField(max_length=20, blank=True, default='')
     index_published = models.BooleanField(default=True)
-    
+    evaluation = models.CharField(max_length=150, blank=True)
+    didactique = models.CharField(max_length=150, blank=True)
     #cursus = models.CharField(max_length=20, blank=True)
     
     class Meta:
@@ -173,7 +174,7 @@ class Cours(models.Model):
     def __str__(self):
         return '{0}'.format(self.nom)
      
-    def cursus_txt(self):
+    def formation(self):
         #foo = [x.code for x in self.cursus.all()]
         return ', '.join([x.code for x in self.cursus.all()])
 
@@ -184,8 +185,10 @@ class Sequence(models.Model):
     cours = models.ForeignKey(Cours, on_delete=models.CASCADE)
     periode = models.IntegerField(blank=False)
     contenu = models.TextField(blank=True)
-    objectifs = models.ManyToManyField(ObjectifEvaluateur, blank=True)
-    
+    objectifs_evaluateurs = models.ManyToManyField(ObjectifEvaluateur, blank=True)
+    objectifs_apprentissage = models.TextField(blank=True)
+    careum = models.CharField(max_length=10, default='', blank=True)
+    objectifs_evaluateurs_txt = models.CharField(max_length=20, default='', blank=True)
     
     def __str__(self):
         return self.titre

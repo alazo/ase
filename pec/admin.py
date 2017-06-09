@@ -3,9 +3,13 @@ from django.contrib import admin
 from .models import (Domaine, Competence, ObjectifParticulier, ObjectifEvaluateur,
                      Orientation, Taxonomie, CompetenceTransversale,
                      Cursus, Cours, TypeCompetence, Sequence, Document)
-from .forms import ObjectifParticulierAdminForm, CoursAdminForm, DocumentAdminForm
-# Register your models here.
+from .forms import (ObjectifParticulierAdminForm, CoursAdminForm, DocumentAdminForm,
+                    SequenceInlineAdminForm)
 
+# Register your models here.
+from django.contrib.admin.widgets import ManyToManyRawIdWidget
+from django.forms import widgets
+from django.utils.html import escape
 
 class DomainAdmin(admin.ModelAdmin):
     pass
@@ -28,19 +32,25 @@ class ObjectifParticulierAdmin(admin.ModelAdmin):
 class SequenceAdmin(admin.ModelAdmin):
     pass
 
-     
-class SequenceInline(admin.TabularInline):
-    fields = ('titre', 'cours' )
+         
+class SequenceInlineAdmin(admin.TabularInline):
+    form = SequenceInlineAdminForm
+    #raw_id_fields = ('objectifs_evaluateurs',)
+    fields = ('titre', 'periode', 'contenu', 'objectifs_evaluateurs_txt', 'objectifs_apprentissage', 'careum')
     model = Sequence
+
     extra = 0
+
     
         
 class CoursAdmin(admin.ModelAdmin):
-    list_display = ('nom', 'periode', 'careum', 'cursus_txt', 'domaine')
+    list_display = ('nom', 'periode', 'careum', 'formation', 'domaine')
+    
     exclude = ('objectifs_evaluateurs',)
     list_filter = ('cursus', 'domaine')
-    inlines = [SequenceInline, ]
+    inlines = [SequenceInlineAdmin, ]
     form = CoursAdminForm
+    
 
     
 class DocumentAdmin(admin.ModelAdmin):
