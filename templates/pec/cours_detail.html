@@ -21,7 +21,7 @@
 <table>
 {% for oeva in object.objectifs_evaluateurs.all %}
 {% if oeva.orientation.nom == 'Global' or oeva.orientation.nom == 'Gén.'  %}
-	<tr><td>{{ oeva.code }} - {{oeva.orientation.nom}} :</td><td>{{ oeva.nom }} </td></tr>
+	<tr><td>{{ oeva.code }} - {{oeva.orientation.nom}} :</td><td>{{ oeva.nom }} ({{oeva.taxonomie }})</td></tr>
 {% endif %}	
 {% endfor %}
 </table>
