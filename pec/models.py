@@ -1,4 +1,6 @@
 from django.db import models
+import os  
+from django.conf import settings
 
 # Create your models here.
 CHOIX_ORIENTATION = (
@@ -195,11 +197,15 @@ class Sequence(models.Model):
 
     
 class Document(models.Model):
-        
+    """Document à uploader"""
     path = models.FileField(upload_to='doc/')
     titre = models.CharField(max_length=100, blank=False)
     published = models.BooleanField(default=False)
-
     
     def __str__(self):
         return self.titre    
+    
+    def delete(self, *args, **kwargs):
+        os.remove(os.path.join(settings.MEDIA_ROOT, self.path.name))
+        super(Document,self).delete(*args, **kwargs)
+        

@@ -56,7 +56,8 @@ class CoursAdmin(admin.ModelAdmin):
 class DocumentAdmin(admin.ModelAdmin):
     form = DocumentAdminForm
        
-    
+
+        
 admin.site.register(Orientation)
 admin.site.register(Taxonomie)
 
