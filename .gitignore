@@ -4,4 +4,4 @@
 common/local_settings.py
 db.*
 scripts/*
-
+*sql*

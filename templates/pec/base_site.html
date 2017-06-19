@@ -9,6 +9,7 @@
 {% if user.is_authenticated %}
 {% block welcome-msg %}Bienvenue <strong>{% firstof user.username %}</strong>.{% endblock %}
 <a href="{% url 'home' %}">Site public</a>&nbsp;&nbsp;<a href="{% url 'admin:index' %}">Admin</a>
+&nbsp;&nbsp;{% block quick_edit %}{% endblock %}
 {% else %}
 <a href="{% url 'admin:index' %}">Admin</a>
 {% endif %}

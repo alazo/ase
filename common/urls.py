@@ -22,6 +22,7 @@ from django.conf.urls.static import static
 urlpatterns = [
     url(r'^$', views.HomeViewFE.as_view(), name='home'),
     url(r'^admin/', admin.site.urls),
+    
     url(r'^tri_opar', views.TriOPar),
     url(r'^tri_oeva', views.TriOEva),
     url(r'^index_fe$', views.HomeViewFE.as_view(), name='index-fe'),
@@ -44,5 +45,6 @@ urlpatterns = [
     url(r'^plan_pdf_mp$', views.plan_form_pdf, {'filiere':'MP'}, name='plan-pdf-mp'),
     url(r'^documents$', views.DocumentListView.as_view(), name='documents'),
     url(r'^document/(?P<pk>\d+)$', views.DocumentDetailView.as_view(), name='document-detail'),
+    
     #url(r'^json_objeval/(?P<pk>\d+)$', views.json_objeval),
 ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT )

@@ -36,7 +36,7 @@ class SequenceAdmin(admin.ModelAdmin):
 class SequenceInlineAdmin(admin.TabularInline):
     form = SequenceInlineAdminForm
     #raw_id_fields = ('objectifs_evaluateurs',)
-    fields = ('titre', 'periode', 'contenu', 'objectifs_evaluateurs_txt', 'objectifs_apprentissage', 'careum')
+    fields = ('titre', 'periode', 'contenu', 'objectifs_evaluateurs', 'objectifs_apprentissage', 'careum')
     model = Sequence
 
     extra = 0

@@ -129,12 +129,12 @@ class ObjectifEvaluateur(models.Model):
     
     class Meta:
         unique_together = ('id', 'orientation')
-        ordering = ('tri', 'orientation__id')
+        ordering = ('tri', )
         verbose_name = 'Obj. évaluateur'
         verbose_name_plural = 'Obj. évaluateurs'
     
     def __str__(self):
-        return '{0} -{1}'.format(self.code, self.nom)    
+        return '{0} -{1}'.format(self.code, self.nom[:20])    
         
         
 class Cursus(models.Model):
@@ -160,9 +160,8 @@ class Cours(models.Model):
     periode = models.IntegerField()
     nbre_note = models.IntegerField()
     domaine = models.ForeignKey(Domaine, default=None,  null=True, on_delete = models.SET_NULL)
-    careum = models.CharField(max_length=10, default='')
+    careum = models.CharField(max_length=30, default='')
     cursus = models.ManyToManyField(Cursus, blank=True)
-    cursus_txt = models.CharField(max_length=20, blank=True, default='')
     index_published = models.BooleanField(default=True)
     evaluation = models.CharField(max_length=150, blank=True)
     didactique = models.CharField(max_length=150, blank=True)
@@ -179,6 +178,25 @@ class Cours(models.Model):
     def formation(self):
         #foo = [x.code for x in self.cursus.all()]
         return ', '.join([x.code for x in self.cursus.all()])
+    
+    def get_cursus(self):
+        foo = [x.code for x in self.cursus.all()]
+        print(foo)
+        return ', '.join(foo)
+        
+        
+    def get_objectifs_evaluateurs(self):
+        foo = {}
+        bar = []
+        for sequence in self.sequence_set.all():
+            for obj in sequence.objectifs_evaluateurs.all().order_by('tri'):
+                bar.append(obj.id)
+        bar.sort()
+                
+        return ObjectifEvaluateur.objects.filter(id__in = bar).order_by('tri')
+        
+        
+        
 
      
 class Sequence(models.Model):
@@ -189,13 +207,18 @@ class Sequence(models.Model):
     contenu = models.TextField(blank=True)
     objectifs_evaluateurs = models.ManyToManyField(ObjectifEvaluateur, blank=True)
     objectifs_apprentissage = models.TextField(blank=True)
-    careum = models.CharField(max_length=10, default='', blank=True)
-    objectifs_evaluateurs_txt = models.CharField(max_length=20, default='', blank=True)
+    careum = models.CharField(max_length=20, default='', blank=True)
     
     def __str__(self):
         return self.titre
 
-    
+    def get_objectifs_evaluateurs_txt(self):
+        foo = [x.code for x in self.objectifs_evaluateurs.all()]
+        return ', '.join(foo)
+        
+        
+        
+        
 class Document(models.Model):
     """Document à uploader"""
     path = models.FileField(upload_to='doc/')

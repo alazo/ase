@@ -36,8 +36,8 @@ class SequenceInlineAdminForm(forms.ModelForm):
         widgets = {
                 'contenu': forms.Textarea(attrs={'cols': 40, 'rows':2}),
                 'objectifs_apprentissage': forms.Textarea(attrs={'cols': 40, 'rows':2}),
-                'objectifs_evaluateurs_txt': forms.TextInput(attrs={'size':10}),
-                'careum': forms.TextInput(attrs={'size':10}),
+                
+                'careum': forms.TextInput(attrs={'size':20}),
             } 
         
         
@@ -47,7 +47,7 @@ class CoursAdminForm(forms.ModelForm):
         model = Cours
         
         fields = ('nom', 'descr','type', 'periode', 'nbre_note', 'domaine',
-                  'careum', 'cursus_txt', 'index_published',
+                  'careum', 'cursus', 'index_published',
                   'didactique','evaluation')
         
         widgets = {
