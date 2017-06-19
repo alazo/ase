@@ -33,7 +33,7 @@
 <tr><th>Obj. évaluateurs</th><td style="padding:0;spacing:0">
 	<table>
 	{% for x in object.get_objectifs_evaluateurs %}
-		<tr><th width="50px">{{ x.code }}:</th><td>{{ x.nom }} ({{x.taxonomie}})</td></tr>
+		<tr><th width="100px">{{ x.code }}-{{x.orientation}}:</th><td>{{ x.nom }} ({{x.taxonomie}})</td></tr>
 	{% endfor %}
 	</table>
 </td></tr>

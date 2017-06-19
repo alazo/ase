@@ -46,7 +46,7 @@ class Domaine(models.Model):
     
     def cours_fe_annee_1(self):
         return self.cours_set.filter(cursus__code='1FE').exclude(index_published=False)
-    
+    5
     def cours_fe_annee_2(self):
         return self.cours_set.filter(cursus=2).exclude(index_published=False)
     
@@ -134,7 +134,7 @@ class ObjectifEvaluateur(models.Model):
         verbose_name_plural = 'Obj. évaluateurs'
     
     def __str__(self):
-        return '{0} -{1}'.format(self.code, self.nom[:20])    
+        return '{0}-{1}-{2}'.format(self.code, self.orientation.nom[:3], self.nom[:20])    
         
         
 class Cursus(models.Model):
