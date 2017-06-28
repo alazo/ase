@@ -1,0 +1,16 @@
+{% extends "./base_site.html" %}
+{% load i18n static %}
+{% block quick_edit %}<a href="{% url 'admin:pec_cours_change' object.id %}">Edit</a>{% endblock %}
+{% block coltype %}colMS{% endblock %}
+
+{% block content %}
+
+<div id="content-main">
+<h1>{{object.nom}}</h1>
+En travail...
+<br/>
+
+</div>
+{% endblock %}
+
+

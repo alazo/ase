@@ -92,7 +92,8 @@ class CompetenceMethoView(DetailView):
 
 class CoursDetailView(DetailView):
     model = Cours
-    template_name = 'pec/cours_detail.html'
+    #template_name = 'pec/cours_detail.html'
+    template_name = 'pec/en_travail.html'
        
     
 class CompetencePersoView(DetailView):
