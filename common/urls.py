@@ -23,8 +23,8 @@ urlpatterns = [
     url(r'^$', views.HomeViewFE.as_view(), name='home'),
     url(r'^admin/', admin.site.urls),
     
-    url(r'^tri_opar', views.TriOPar),
-    url(r'^tri_oeva', views.TriOEva),
+    # url(r'^tri_opar', views.TriOPar),
+    # url(r'^tri_oeva', views.TriOEva),
     url(r'^index_fe$', views.HomeViewFE.as_view(), name='index-fe'),
     url(r'^index_mp$', views.HomeViewMP.as_view(), name='index-mp'),
     url(r'^comp_prof_liste$', views.CompetenceProfListView.as_view(), name='competence-prof-liste'),

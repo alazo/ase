@@ -6,18 +6,14 @@ from .models import (Domaine, Competence, ObjectifParticulier, ObjectifEvaluateu
 from .forms import (ObjectifParticulierAdminForm, CoursAdminForm, DocumentAdminForm,
                     SequenceInlineAdminForm)
 
-# Register your models here.
-from django.contrib.admin.widgets import ManyToManyRawIdWidget
-from django.forms import widgets
-from django.utils.html import escape
 
 class DomainAdmin(admin.ModelAdmin):
     pass
 
+
 class ObjectifEvaluateurAdmin(admin.ModelAdmin):
     search_fields = ('nom',)
     list_display = ('code', 'orientation', 'nom', 'taxonomie')
-    
     list_filter = ('orientation',)
     
     class Meta:
@@ -32,35 +28,29 @@ class ObjectifParticulierAdmin(admin.ModelAdmin):
 class SequenceAdmin(admin.ModelAdmin):
     pass
 
-         
+
 class SequenceInlineAdmin(admin.TabularInline):
     form = SequenceInlineAdminForm
-    #raw_id_fields = ('objectifs_evaluateurs',)
+    # raw_id_fields = ('objectifs_evaluateurs',)
     fields = ('titre', 'periode', 'contenu', 'objectifs_evaluateurs', 'objectifs_apprentissage', 'careum')
     model = Sequence
-
     extra = 0
 
-    
-        
+
 class CoursAdmin(admin.ModelAdmin):
     list_display = ('nom', 'periode', 'careum', 'formation', 'domaine')
-    
     exclude = ('objectifs_evaluateurs',)
     list_filter = ('cursus', 'domaine')
     inlines = [SequenceInlineAdmin, ]
     form = CoursAdminForm
-    
 
-    
+
 class DocumentAdmin(admin.ModelAdmin):
     form = DocumentAdminForm
-       
 
         
 admin.site.register(Orientation)
 admin.site.register(Taxonomie)
-
 admin.site.register(Domaine)
 admin.site.register(Competence)
 admin.site.register(ObjectifParticulier, ObjectifParticulierAdmin)
