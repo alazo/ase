@@ -6,45 +6,65 @@
 {% block content %}
 
 <div id="content-main">
-<h1>{{object.nom}}</h1>
-{% if user.is_active and user.is_staff %}
-	<table >
-	<tr><th width="200px">Domaine</th><td>{{object.domaine.nom}}</td></tr>
-	<tr><th>Compétence(s) travaillées()</th><td>
-	{% for c in object.domaine.competence_set.all %}
-	<p>{{c.code}} - {{c.nom}}</p>
-	{% endfor %}</td></tr>
-	<tr><th>Durée</th><td>{{object.periode}} pér.</td></tr>
-	<tr><th>Cursus</th><td>{{object.get_cursus}}</td></tr>
-	<tr><th>Nbre de notes</th><td>{{object.nbre_note}}</td></tr>
-	<tr><th>Careum</th><td>{{object.careum}}</td></tr>
-	<tr><th>Séquence</th><td style="padding:0;spacing:0">
-		<table>
-			<tr><th>Titre</th><th>Périodes</th><th>Careum</th><th>Obj. éval.</th></tr>
-		{% for s in object.sequence_set.all %}
-			<tr><td>{{ s.titre }} :</td><td>{{ s.periode }} pér.</td><td>{{ s.careum }}</td>
-			<td>{{ s.get_objectifs_evaluateurs_txt }}</td>
-			<td>{{ s.contenu }}</td>
-			
+	<h1>{{object.nom}}</h1>
+	{% if user.is_active and user.is_staff %}
+		<table >
+			<tr>
+				<th width="200px">Domaine</th>
+				<td>{{object.domaine.nom}}</td>
 			</tr>
-		{% endfor %}
-		</table>
-	</td></tr>
-	
-	<tr><th>Obj. évaluateurs</th><td style="padding:0;spacing:0">
-		<table>
-		{% for x in object.get_objectifs_evaluateurs %}
-			<tr><th width="100px">{{ x.code }}-{{x.orientation}}:</th><td>{{ x.nom }} ({{x.taxonomie}})</td></tr>
-		{% endfor %}
-		</table>
-	</td></tr>
-	</table>
-{% else %}
-En travail...
-{% endif %}
+			<tr>
+				<th>Compétence(s) travaillées()</th>
+				<td>
+					{% for c in object.domaine.competence_set.all %}
+						<p>{{c.code}} - {{c.nom}}</p>
+					{% endfor %}
+				</td>
+			</tr>
+			<tr>
+				<th>Durée</th><td>{{object.periode}} pér.</td></tr>
+				<tr><th>Cursus</th><td>{{object.get_cursus}}</td></tr>
+				<tr><th>Nbre de notes</th><td>{{object.nbre_note}}</td></tr>
+				<tr><th>Careum</th><td>{{object.careum}}</td></tr>
+				<tr><th>Séquence</th>
+					<td style="padding:0;spacing:0">
+						<table>
+							<tr>
+								<th>Titre</th>
+								<th>Périodes</th>
+								<th>Careum</th>
+								<th>Obj. éval.</th>
+							</tr>
+							{% for s in object.sequence_set.all %}
+								<tr>
+									<td>{{ s.titre }} :</td>
+									<td>{{ s.periode }} pér.</td>
+									<td>{{ s.careum }}</td>
+									<td>{{ s.get_objectifs_evaluateurs_txt }}</td>
+									<td>{{ s.contenu }}</td>
+								</tr>
+							{% endfor %}
+						</table>
+					</td>
+				</tr>
 
-<br/>
-
+				<tr>
+					<th>Obj. évaluateurs</th>
+					<td style="padding:0;spacing:0">
+						<table>
+							{% for x in object.get_objectifs_evaluateurs %}
+								<tr>
+									<th width="100px">{{ x.code }}-{{x.orientation}}:</th><td>{{ x.nom }} ({{x.taxonomie}})</td>
+								</tr>
+							{% endfor %}
+						</table>
+					</td>
+				</tr>
+		</table>
+	{% else %}
+		En travail...
+	{% endif %}
+	<br/>
 </div>
 {% endblock %}
 

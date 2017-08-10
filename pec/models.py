@@ -43,27 +43,21 @@ class Domaine(models.Model):
     def __str__(self):
         return '{0} -{1}'.format(self.code, self.nom)
 
-    @property
     def cours_fe_annee_1(self):
         return self.cours_set.filter(cursus__code='1FE').exclude(index_published=False)
 
-    @property
     def cours_fe_annee_2(self):
         return self.cours_set.filter(cursus=2).exclude(index_published=False)
 
-    @property
     def cours_fe_annee_3(self):
         return self.cours_set.filter(cursus=3).exclude(index_published=False)
 
-    @property
     def cours_mp_annee_1(self):
         return self.cours_set.filter(cursus=4).exclude(index_published=False)
 
-    @property
     def cours_mp_annee_2(self):
         return self.cours_set.filter(cursus=5).exclude(index_published=False)
 
-    @property
     def cours_mp_annee_3(self):
         return self.cours_set.filter(cursus=6).exclude(index_published=False)    
 

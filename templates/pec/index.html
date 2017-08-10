@@ -7,24 +7,31 @@
 
 <div id="content-main">
 
-<table id="plan">
-<tr>
-	<th width="700px">Compétences méthodologiques</th>
-	<th width="700px">Compétences professionnelles</th>
-	<th width="700px">Compétences personnelles</th>
-</tr>
-
-<tr>
-	<td>{% for m in metho %}<p>{{forloop.counter}}&nbsp;<a href="{% url 'competence-metho' m.id %}">{{m.nom}}</a></p><br/>{% endfor %}</td>
-	<td>{% for c in competences %}<p>{{forloop.counter}}&nbsp;<a href="{% url 'competence-prof' c.id %}">{{c.nom}}</a></p><br/>{% endfor %}</td>
-	<td>{% for p in perso %}<p>{{forloop.counter}}&nbsp;{{p.nom}}</p><br/>{% endfor %}</td>
-	
-</tr>
-
-
-</table>
+	<table id="plan">
+		<tr>
+			<th width="700px">Compétences méthodologiques</th>
+			<th width="700px">Compétences professionnelles</th>
+			<th width="700px">Compétences personnelles</th>
+		</tr>
+		<tr>
+			<td>
+				{% for m in metho %}
+					<p>{{forloop.counter}}&nbsp;<a href="{% url 'competence-metho' m.id %}">{{m.nom}}</a></p><br/>
+				{% endfor %}
+			</td>
+			<td>
+				{% for c in competences %}
+					<p>{{forloop.counter}}&nbsp;<a href="{% url 'competence-prof' c.id %}">{{c.nom}}</a></p><br/>
+				{% endfor %}
+			</td>
+			<td>
+				{% for p in perso %}
+					<p>{{forloop.counter}}&nbsp;{{p.nom}}</p><br/>
+				{% endfor %}
+			</td>
+		</tr>
+	</table>
 <br/>
-
 </div>
 {% endblock %}
 

@@ -4,20 +4,17 @@
 {% block coltype %}colMS{% endblock %}
 
 {% block content %}
-
 <div id="content-main">
-<h1>Séminaires spécifiques</h1>
-<br/>
-<p>Les séminaires spécifiques ont lieu sur les 2ème, 3ème et 4ème semestres de la formation. 
-Ils concernent les trois domaines suivants :</p>
-<ul>
-	<li><a href="{% url 'cours' 143 %}">enfance</a>
-	<li><a href="{% url 'cours' 144 %}">handicap</a>
-	<li><a href="{% url 'cours' 145 %}">personne âgée</a>
-</ul>
-
-<p>Chaque apprenti-e-s suit les trois séminaires.</p> 
-
+	<h1>Séminaires spécifiques</h1>
+	<br>
+	<p>Les séminaires spécifiques ont lieu sur les 2ème, 3ème et 4ème semestres de la formation.
+	Ils concernent les trois domaines suivants :</p>
+	<ul>
+		<li><a href="{% url 'cours' 143 %}">enfance</a>
+		<li><a href="{% url 'cours' 144 %}">handicap</a>
+		<li><a href="{% url 'cours' 145 %}">personne âgée</a>
+	</ul>
+	<p>Chaque apprenti-e-s suit les trois séminaires.</p>
 </div>
 {% endblock %}
 

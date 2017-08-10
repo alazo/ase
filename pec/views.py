@@ -164,7 +164,7 @@ class DocumentDetailView(DetailView):
     template_name = 'pec/document_detail.html'
     
     
-def plan_form_pdf(filiere):
+def plan_form_pdf(request, filiere):
     """Retourne le pdf du plan de formation FE"""
     table_style = []
     story = [['Domaine', 'Année1', 'Année 2', 'Année 3']]
@@ -174,7 +174,7 @@ def plan_form_pdf(filiere):
         response = PDFResponse('PlanFormation.pdf', 'Plan de formation FE', portrait=False)
             
         for row, d in enumerate(domaines):
-            c1 = '\n'.join('{0} ({1} pér.)'.format(x.nom, x.periode) for x in d.cours_fe_annee_1)
+            c1 = '\n'.join('{0} ({1} pér.)'.format(x.nom, x.periode) for x in d.cours_fe_annee_1())
             c2 = '\n'.join('{0} ({1} pér.)'.format(x.nom, x.periode) for x in d.cours_fe_annee_2())
             c3 = '\n'.join('{0} ({1} pér.)'.format(x.nom, x.periode) for x in d.cours_fe_annee_3())
             story.append([d.nom, c1, c2, c3])
@@ -200,7 +200,7 @@ def plan_form_pdf(filiere):
         ('GRID', (0, 0), (-1, -1), 0.25, colors.black)])
 
     t.setStyle(TableStyle(table_style))
-                           
+
     response.story.append(t)
     doc = MyDocTemplateLandscape(response)  
     doc.build(response.story)

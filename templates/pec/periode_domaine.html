@@ -4,43 +4,44 @@
 {% block coltype %}colMS{% endblock %}
 
 {% block content %}
-
 <div id="content-main">
-<table id="tb_title" width="85%">
-<tr><td><h1>{{ formation }} - répartition des cours</h1></td>
-{% if toggle == 'FE' %}
-<td class="toggle"><a href="{% url 'periode-domaine-mp' %}">> MP</a></td></tr></table>
-{% else %}
-<td class="toggle"><a href="{% url 'periode-domaine-fe' %}">> FE</a></td></tr></table>
-{% endif %}
-<table id="tb_periode">
-<tr><th width="300px">Domaine</th>
-<th width="100px" class="r">Année 1</th>
-<th width="100px" class="r">Année 2</th>
-<th width="100px" class="r">Année 3</th>
-</tr>
-{% for d in dom %}
-<tr>
-<td>{{ d.nom }}</td>
-<td class="r">{% if d.tot1 is None %}&nbsp; {% else %} {{ d.tot1 }} pér. {% endif %}</td>
-<td class="r">{% if d.tot2 is None %}&nbsp; {% else %} {{ d.tot2 }} pér. {% endif %}</td>
-<td class="r">{% if d.tot3 is None %}&nbsp; {% else %} {{ d.tot3 }} pér. {% endif %}</td>
-</tr>
-{% endfor %}
-<tr>
-<th>Totaux annuels</th>
-<th class="r">{{ a1 }} pér.</th>
-<th class="r">{{ a2 }} pér.</th>
-<th class="r">{{ a3 }} pér.</th>
-</tr>
-<tr>
-<th>Total de la formation</th>
-<th colspan="3" style="text-align:center">{{ aa }} pér.</th>
-</tr>
-</table>
-
-<br/>
-
+    <table id="tb_title" width="85%">
+        <tr>
+            <td><h1>{{ formation }} - répartition des cours</h1></td>
+            {% if toggle == 'FE' %}
+                <td class="toggle"><a href="{% url 'periode-domaine-mp' %}">> MP</a></td>
+            {% else %}
+                <td class="toggle"><a href="{% url 'periode-domaine-fe' %}">> FE</a></td>
+            {% endif %}
+        </tr>
+    </table>
+    <table id="tb_periode">
+        <tr>
+            <th width="300px">Domaine</th>
+            <th width="100px" class="r">Année 1</th>
+            <th width="100px" class="r">Année 2</th>
+            <th width="100px" class="r">Année 3</th>
+        </tr>
+        {% for d in dom %}
+            <tr>
+                <td>{{ d.nom }}</td>
+                <td class="r">{% if d.tot1 is None %}&nbsp; {% else %} {{ d.tot1 }} pér. {% endif %}</td>
+                <td class="r">{% if d.tot2 is None %}&nbsp; {% else %} {{ d.tot2 }} pér. {% endif %}</td>
+                <td class="r">{% if d.tot3 is None %}&nbsp; {% else %} {{ d.tot3 }} pér. {% endif %}</td>
+            </tr>
+        {% endfor %}
+        <tr>
+            <th>Totaux annuels</th>
+            <th class="r">{{ a1 }} pér.</th>
+            <th class="r">{{ a2 }} pér.</th>
+            <th class="r">{{ a3 }} pér.</th>
+        </tr>
+        <tr>
+            <th>Total de la formation</th>
+            <th colspan="3" style="text-align:center">{{ aa }} pér.</th>
+        </tr>
+    </table>
+    <br>
 </div>
 {% endblock %}
 
