@@ -6,3 +6,5 @@ common/local_settings.py
 db/*
 scripts/*
 *sql*
+*.save
+.idea/*
