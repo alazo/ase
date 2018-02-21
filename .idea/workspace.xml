@@ -2,15 +2,8 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="c4d35271-5974-4a45-846d-333aca6fca4a" name="Default" comment="">
-      <change type="DELETED" beforePath="$PROJECT_DIR$/.settings/org.eclipse.core.resources.prefs" afterPath="" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/pec/static/img/EPC_bandeau_A4V_c_aa.png" afterPath="$PROJECT_DIR$/pec/static/img/EPC_bandeau_A4V_c_aa.png" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/pec/static/img/header.gif" afterPath="$PROJECT_DIR$/pec/static/img/header.gif" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/pec/static/img/logo_EPC.png" afterPath="$PROJECT_DIR$/pec/static/img/logo_EPC.png" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/pec/static/img/logo_ESNE.png" afterPath="$PROJECT_DIR$/pec/static/img/logo_ESNE.png" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.gitignore" afterPath="$PROJECT_DIR$/.gitignore" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/common/settings.py" afterPath="$PROJECT_DIR$/common/settings.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/common/wsgi.py" afterPath="$PROJECT_DIR$/common/wsgi.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/pdf/models.py" afterPath="$PROJECT_DIR$/pdf/models.py" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
@@ -33,12 +26,34 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name=".gitignore" pinned="false" current-in-tab="true">
+      <file leaf-file-name=".gitignore" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/.gitignore">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="162">
               <caret line="9" column="7" lean-forward="false" selection-start-line="9" selection-start-column="7" selection-end-line="9" selection-end-column="7" />
               <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="settings.py" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/common/settings.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="774">
+              <caret line="114" column="44" lean-forward="false" selection-start-line="114" selection-start-column="44" selection-end-line="114" selection-end-column="44" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="models.py" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/pdf/models.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="414">
+              <caret line="121" column="29" lean-forward="false" selection-start-line="121" selection-start-column="29" selection-end-line="121" selection-end-column="29" />
+              <folding>
+                <element signature="e#1#33#0" expanded="true" />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -79,16 +94,16 @@
         <option value="$PROJECT_DIR$/templates/pec/document_detail.html" />
         <option value="$PROJECT_DIR$/templates/pec/en_travail.html" />
         <option value="$PROJECT_DIR$/pec/forms.py" />
-        <option value="$PROJECT_DIR$/pdf/models.py" />
         <option value="$PROJECT_DIR$/pec/views.py" />
         <option value="$PROJECT_DIR$/common/urls.py" />
         <option value="$PROJECT_DIR$/pec/models.py" />
         <option value="$PROJECT_DIR$/templates/pec/base.html" />
         <option value="$PROJECT_DIR$/templates/pec/base_site.html" />
         <option value="$PROJECT_DIR$/common/wsgi.py" />
-        <option value="$PROJECT_DIR$/common/settings.py" />
         <option value="$PROJECT_DIR$/common/local_settings.py" />
         <option value="$PROJECT_DIR$/.gitignore" />
+        <option value="$PROJECT_DIR$/common/settings.py" />
+        <option value="$PROJECT_DIR$/pdf/models.py" />
       </list>
     </option>
   </component>
@@ -130,6 +145,17 @@
               <item name="ase" type="b2602c69:ProjectViewProjectNode" />
               <item name="ase" type="462c0819:PsiDirectoryNode" />
               <item name="media" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="ase" type="b2602c69:ProjectViewProjectNode" />
+              <item name="ase" type="462c0819:PsiDirectoryNode" />
+              <item name="pdf" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="ase" type="b2602c69:ProjectViewProjectNode" />
+              <item name="ase" type="462c0819:PsiDirectoryNode" />
+              <item name="pdf" type="462c0819:PsiDirectoryNode" />
+              <item name="models.py" type="8704e2dd:PyFileNode" />
             </path>
             <path>
               <item name="ase" type="b2602c69:ProjectViewProjectNode" />
@@ -374,13 +400,6 @@
     <entry file="file://$USER_HOME$/.virtualenvs/asepec/lib/python3.4/site-packages/reportlab/platypus/frames.py" />
     <entry file="file://$USER_HOME$/.virtualenvs/asepec/lib/python3.4/site-packages/reportlab/pdfgen/canvas.py" />
     <entry file="file://$USER_HOME$/.virtualenvs/asepec/lib/python3.4/site-packages/reportlab/platypus/doctemplate.py" />
-    <entry file="file://$PROJECT_DIR$/pdf/models.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="2160">
-          <caret line="129" column="35" lean-forward="false" selection-start-line="102" selection-start-column="0" selection-end-line="137" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/pec/forms.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="774">
@@ -511,14 +530,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/common/settings.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1368">
-          <caret line="117" column="42" lean-forward="false" selection-start-line="117" selection-start-column="42" selection-end-line="117" selection-end-column="42" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/pec/migrations/0016_auto_20170606_1214.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
@@ -580,6 +591,24 @@
         <state relative-caret-position="162">
           <caret line="9" column="7" lean-forward="false" selection-start-line="9" selection-start-column="7" selection-end-line="9" selection-end-column="7" />
           <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/common/settings.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="774">
+          <caret line="114" column="44" lean-forward="false" selection-start-line="114" selection-start-column="44" selection-end-line="114" selection-end-column="44" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/pdf/models.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="414">
+          <caret line="121" column="29" lean-forward="false" selection-start-line="121" selection-start-column="29" selection-end-line="121" selection-end-column="29" />
+          <folding>
+            <element signature="e#1#33#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>

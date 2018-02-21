@@ -7,9 +7,12 @@ from reportlab.lib.units import cm
 from reportlab.lib.enums import TA_LEFT, TA_CENTER
 from reportlab.lib import colors
 from reportlab.lib.colors import HexColor
+from django.contrib.staticfiles.finders import find
 
 from pec.models import Domaine
 
+LOGO_EPC = find('img/logo_EPC.png')
+LOGO_ESNE = find('img/logo_ESNE.png')
 
 class PlanFormationPdf(SimpleDocTemplate):
 
@@ -115,8 +118,8 @@ class MyDocTemplateES(SimpleDocTemplate):
                                    bottomMargin=0.5 * cm,
                                    )
         self.fileName = filename
-        im1 = Image(settings.MEDIA_ROOT + 'logo_EPC.png', width=170, height=80)
-        im2 = Image(settings.MEDIA_ROOT + 'logo_ESNE.png', width=170, height=80)
+        im1 = Image(LOGO_EPC, width=170, height=80)
+        im2 = Image(LOGO_ESNE, width=170, height=80)
         data = list()
         data.append([im1, im2])
         data.append([Spacer(0, 0.5 * cm)])
