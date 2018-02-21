@@ -1,5 +1,6 @@
 {% extends "./base.html" %}
-
+{% load static %}
+{% block extrastyle %}<link rel="stylesheet" type="text/css" href="{% static 'css/main3.css' %}" />{% endblock %}
 {% block title %}ASE{% endblock %}
 
 {% block branding %}
@@ -22,15 +23,15 @@
 {% endblock %}
 {% block nav-global %}{% endblock %}
 {% block breadcrumbs %}
-<div class="breadcrumbs">
-    <ul>
-        <li><a href="{% url 'home' %}">Accueil</a></li>
-        <li><a href="{% url 'competence-prof-liste' %}">Comp. prof.</a></li>
-        <li><a href="{% url 'obj-eval-liste' %}">Obj. éval.</a></li>
-        <li><a href="{% url 'cours' %}">Cours</a></li>
-        <li><a href="{% url 'periode-fe' %}">Pér. formation</a></li>
-        <li><a href="{% url 'periode-domaine-fe' %}">Pér. par domaine</a></li>
-        <li><a href="{% url 'documents' %}">Documents</a></li>
-    </ul>
-</div>
+    <div class="breadcrumbs">
+        <ul>
+            <li><a href="{% url 'home' %}">Accueil</a></li>
+            <li><a href="{% url 'competence-prof-liste' %}">Comp. prof.</a></li>
+            <li><a href="{% url 'obj-eval-liste' %}">Obj. éval.</a></li>
+            <li><a href="{% url 'cours' %}">Cours</a></li>
+            <li><a href="{% url 'periode-fe' %}">Pér. formation</a></li>
+            <li><a href="{% url 'periode-domaine-fe' %}">Pér. par domaine</a></li>
+            <li><a href="{% url 'documents' %}">Documents</a></li>
+        </ul>
+    </div>
 {% endblock %}

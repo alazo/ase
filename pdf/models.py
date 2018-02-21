@@ -1,87 +1,144 @@
 
-from django.http.response import HttpResponse
 from django.conf import settings
 
-from reportlab.platypus import SimpleDocTemplate
-
-from reportlab.platypus import Paragraph, Spacer, PageBreak, Table, TableStyle, Image
-from reportlab.graphics.shapes import Line
+from reportlab.platypus import SimpleDocTemplate, Table, TableStyle, Image, Spacer
 from reportlab.lib.pagesizes import A4, landscape
 from reportlab.lib.units import cm
 from reportlab.lib.enums import TA_LEFT, TA_CENTER
 from reportlab.lib import colors
-from reportlab.lib.styles import ParagraphStyle as PS
-style_8_c = PS(name='CORPS', fontName='Helvetica', fontSize=6, alignment = TA_CENTER)
-style_normal = PS(name='CORPS', fontName='Helvetica', fontSize=8, alignment = TA_LEFT)
-style_bold = PS(name='CORPS', fontName='Helvetica-Bold', fontSize=10, alignment = TA_LEFT)
-style_title = PS(name='CORPS', fontName='Helvetica', fontSize=12, alignment = TA_LEFT)
-style_adress = PS(name='CORPS', fontName='Helvetica', fontSize=10, alignment = TA_LEFT, leftIndent=300)
+from reportlab.lib.colors import HexColor
+
+from pec.models import Domaine
 
 
+class PlanFormationPdf(SimpleDocTemplate):
 
-class PDFResponse(HttpResponse):
-    
-    def __init__(self, filename, title='', portrait=True):
-        HttpResponse.__init__(self, content_type='application/pdf')
-        self['Content-Disposition'] = 'attachment; filename={0}'.format(filename)
-        self['Content-Type'] = 'charset=utf-8'
-        self.story = []
-        image = Image(settings.MEDIA_ROOT + 'logo.png', width=140, height=80)
-        image.hAlign = TA_LEFT
-        
-        self.story.append(image)
-        #self.story.append(Spacer(0,1*cm))
-        
-        data = [['Formation CFC-ASE - FE', title]]
-        if portrait:
-            t =  Table(data, colWidths=[8*cm,8*cm])
+    def __init__(self, filename):
+        self.flowable = list()
+        MyDocTemplateES.__init__(self, filename, 'Formation ASE', 'Plan de formation', portrait=False)
+
+    def produce(self, filiere):
+        table_style = []
+        data = [['Domaine', 'Année1', 'Année 2', 'Année 3']]
+
+        if filiere == 'FE':
+            domaines = Domaine.objects.exclude(abrev='CIE')
+            for row, d in enumerate(domaines):
+                c1 = '\n'.join('{0} ({1} pér.)'.format(x.nom, x.periode) for x in d.cours_fe_annee_1())
+                c2 = '\n'.join('{0} ({1} pér.)'.format(x.nom, x.periode) for x in d.cours_fe_annee_2())
+                c3 = '\n'.join('{0} ({1} pér.)'.format(x.nom, x.periode) for x in d.cours_fe_annee_3())
+                data.append([d.nom, c1, c2, c3])
+                color = '{0}'.format(d.couleur[:7])
+                table_style.append(('BACKGROUND', (0, row + 1), (3, row + 1), HexColor(color)), )
         else:
-            t =  Table(data, colWidths=[14*cm,11*cm])
-        t.setStyle(TableStyle([ ('ALIGN',(0,0),(0,0),'LEFT'),
-                                ('ALIGN',(1,0),(-1,-1),'RIGHT'),
-                                ('LINEABOVE', (0,0) ,(-1,-1), 0.5, colors.black),
-                                ('LINEBELOW', (0,-1),(-1,-1), 0.5, colors.black),
-                            ]))
-        t.hAlign = TA_LEFT
-        self.story.append(t)
-        
-        
-    
+            domaines = Domaine.objects.all().exclude(abrev='ECG').exclude(abrev='EPH')
+            for row, d in enumerate(domaines):
+                c1 = '\n'.join('{0} ({1} pér.)'.format(x.nom, x.periode) for x in d.cours_mp_annee_1())
+                c2 = '\n'.join('{0} ({1} pér.)'.format(x.nom, x.periode) for x in d.cours_mp_annee_2())
+                c3 = '\n'.join('{0} ({1} pér.)'.format(x.nom, x.periode) for x in d.cours_mp_annee_3())
+                data.append([d.nom, c1, c2, c3])
+                color = '{0}'.format(d.couleur[:7])
+                table_style.append(('BACKGROUND', (0, row + 1), (3, row + 1), HexColor(color)), )
+
+        t = Table(data, colWidths=[6.5 * cm, 6.5 * cm, 6.5 * cm, 6.5 * cm], spaceBefore=0.5 * cm, spaceAfter=1 * cm)
+        table_style.extend(
+            [
+                ('SIZE', (0, 0), (-1, -1), 7),
+                ('FONT', (0, 0), (-1, 0), 'Helvetica-Bold'),
+                ('VALIGN', (0, 0), (-1, -1), 'MIDDLE'),
+                ('ALIGN', (0, 0), (-1, -1), 'LEFT'),
+                ('GRID', (0, 0), (-1, -1), 0.25, colors.black),
+            ]
+        )
+        t.setStyle(TableStyle(table_style))
+        self.flowable.append(t)
+        self.build(self.flowable)
+
+
 class MyDocTemplate(SimpleDocTemplate):
     
-    def __init__(self, name):
-        SimpleDocTemplate.__init__(self, name, pagesize=A4, topMargin=0*cm)
-        self.fileName = name
-        self.PAGE_WIDTH = A4[0]
-        self.PAGE_HEIGHT = A4[1]
-        self.CENTRE_WIDTH = self.PAGE_WIDTH/2.0
-        self.CENTRE_HEIGHT = self.PAGE_HEIGHT/2.0
-        
-        
+    def __init__(self, filename, title_left, title_right, portrait=True):
+        if portrait is True:
+            page_size = A4
+            column_width = 8*cm
+        else:
+            page_size = landscape(A4)
+            column_width = 13*cm
+        SimpleDocTemplate.__init__(self, filename, pagesize=page_size,
+                                   topMargin=0*cm,
+                                   leftMargin=2 * cm,
+                                   rightMargin=2 * cm,
+                                   bottomMargin=0.5 * cm,
+                                   )
+        self.fileName = filename
+        im1 = Image(settings.MEDIA_ROOT + 'logo_EPC.png', width=170, height=80, hAlign=TA_LEFT)
+        data = list()
+        data.append([im1, ''])
+        data.append([Spacer(0, 0.5*cm)])
+
+        data.append([title_left, title_right])
+        t = Table(data, colWidths=[column_width]*2, hAlign=TA_LEFT)
+        t.setStyle(
+            TableStyle(
+                [
+                    ('SIZE', (0, 0), (-1, -1), 9),
+                    ('FONT', (0, 0), (-1, 0), 'Helvetica-Bold'),
+                    ('ALIGN', (0, 0), (0, 0), 'LEFT'),
+                    ('ALIGN', (1, 0), (-1, -1), 'RIGHT'),
+                    ('LINEABOVE', (0, 0), (-1, -1), 0.5, colors.black),
+                    ('LINEBELOW', (0, -1), (-1, -1), 0.5, colors.black),
+                ]
+            )
+        )
+        self.flowable.append(t)
+
     def beforePage(self):
         # page number
         self.canv.saveState()
         self.canv.setFontSize(8)
-        self.canv.drawCentredString(self.CENTRE_WIDTH,1*cm,"Page : " + str(self.canv.getPageNumber()))
+        self.canv.drawCentredString(self.pagesize[0]/2, 2.5*cm, "Page : " + str(self.canv.getPageNumber()))
         self.canv.restoreState()
-        
-        
-    
-class MyDocTemplateLandscape(SimpleDocTemplate):
-    
-    def __init__(self, name):
-        SimpleDocTemplate.__init__(self, name, pagesize=landscape(A4), topMargin=0*cm, leftMargin=2*cm, bottomMargin=0.5*cm)
-        self.fileName = name
-        self.PAGE_WIDTH = A4[1]
-        self.PAGE_HEIGHT = A4[0]
-        self.CENTRE_WIDTH = self.PAGE_WIDTH/2.0
-        self.CENTRE_HEIGHT = self.PAGE_HEIGHT/2.0
-        
+
+
+class MyDocTemplateES(SimpleDocTemplate):
+    def __init__(self, filename, title_left, title_right, portrait=True):
+        if portrait is True:
+            page_size = A4
+            column_width = 8 * cm
+        else:
+            page_size = landscape(A4)
+            column_width = 13 * cm
+        SimpleDocTemplate.__init__(self, filename, pagesize=page_size,
+                                   topMargin=0 * cm,
+                                   leftMargin=2 * cm,
+                                   rightMargin=2 * cm,
+                                   bottomMargin=0.5 * cm,
+                                   )
+        self.fileName = filename
+        im1 = Image(settings.MEDIA_ROOT + 'logo_EPC.png', width=170, height=80)
+        im2 = Image(settings.MEDIA_ROOT + 'logo_ESNE.png', width=170, height=80)
+        data = list()
+        data.append([im1, im2])
+        data.append([Spacer(0, 0.5 * cm)])
+        data.append([title_left, title_right])
+        t = Table(data, colWidths=[column_width] * 2, hAlign=TA_LEFT)
+        t.setStyle(
+            TableStyle(
+                [
+                    ('SIZE', (0, 0), (-1, -1), 9),
+                    ('FONT', (0, 0), (-1, -1), 'Helvetica-Bold'),
+                    ('ALIGN', (0, 0), (0, 0), 'LEFT'),
+                    ('ALIGN', (1, 0), (-1, -1), 'RIGHT'),
+                    ('LINEABOVE', (0, 2), (-1, 2), 0.5, colors.black),
+                    ('LINEBELOW', (0, -1), (-1, -1), 0.5, colors.black),
+                ]
+            )
+        )
+        self.flowable.append(t)
+
     def beforePage(self):
         # page number
         self.canv.saveState()
         self.canv.setFontSize(8)
-        self.canv.drawCentredString(self.CENTRE_WIDTH,1*cm,"Page : " + str(self.canv.getPageNumber()))
+        self.canv.drawCentredString(self.pagesize[0] / 2, 2.5 * cm, "Page : " + str(self.canv.getPageNumber()))
         self.canv.restoreState()
-    
-    

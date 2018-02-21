@@ -4,17 +4,17 @@
 {% block coltype %}colMS{% endblock %}
 
 {% block content %}
-<div id="content-main">
-    <h1>Compétences professionnelles</h1>
-    <table>
-        {% for comp in object_list %}
-            <tr>
-                <td>{{comp.code}}</td>
-                <td><a href="{% url 'competence-prof' comp.id %}">{{comp.nom}}</a></td>
-            </tr>
-        {% endfor %}
-    </table>
-</div>
+    <div id="content-main">
+        <h1>Compétences professionnelles</h1>
+        <table>
+            {% for comp in object_list %}
+                <tr>
+                    <td>{{comp.code}}</td>
+                    <td><a href="{% url 'competence-prof' comp.id %}">{{comp.nom}}</a></td>
+                </tr>
+            {% endfor %}
+        </table>
+    </div>
 {% endblock %}
 
 

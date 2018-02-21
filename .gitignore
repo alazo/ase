@@ -1,7 +1,8 @@
 *.pyc
-.settings/
-*project
+.settings/.
+.project
+.pydevproject
 common/local_settings.py
-db.*
+db/*
 scripts/*
 *sql*

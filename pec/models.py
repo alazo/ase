@@ -33,8 +33,8 @@ class Taxonomie(models.Model):
 class Domaine(models.Model):
     code = models.CharField(max_length=8, blank=False)
     nom = models.CharField(max_length=100, blank=False, unique=True)
-    descr = models.TextField(default='', blank=True, verbose_name='description')
-    abrev = models.CharField(max_length=10, blank=True, verbose_name='abréviation')
+    descr = models.TextField('description', default='', blank=True)
+    abrev = models.CharField('abréviation', max_length=10, blank=True)
     couleur = models.CharField(max_length=10, default='', blank=True)
     
     class Meta:
@@ -87,7 +87,7 @@ class Competence(models.Model):
 class CompetenceTransversale(models.Model):
     """Compétence transversale selon PEC-ASE (méthodologiques et personnelles)"""
     nom = models.CharField(max_length=150)
-    type = models.ForeignKey(TypeCompetence, default=None, blank=False, null=True)
+    type = models.ForeignKey(TypeCompetence, default=None, blank=False, null=True, on_delete=models.SET_NULL)
     
     class Meta:
         verbose_name = 'Comp. transversale'
@@ -102,7 +102,7 @@ class ObjectifParticulier(models.Model):
     tri = models.IntegerField(default=0)
     code = models.CharField(max_length=8, blank=False)
     nom = models.CharField(max_length=250, blank=True)
-    competence = models.ForeignKey(Competence, default=None, null=True, on_delete=models.SET_NULL)
+    competence = models.ForeignKey(Competence, default=None, null=True, blank=True, on_delete=models.SET_NULL)
     competences_transversales = models.ManyToManyField(CompetenceTransversale, blank=True)
     
     class Meta:
@@ -121,9 +121,9 @@ class ObjectifEvaluateur(models.Model):
     tri = models.IntegerField(default=0)
     code = models.CharField(max_length=8, blank=False)
     nom = models.TextField(default='', blank=True)
-    objectif_particulier = models.ForeignKey(ObjectifParticulier, null=True, on_delete=models.SET_NULL)
-    taxonomie = models.ForeignKey(Taxonomie, null=True, on_delete=models.SET_NULL)
-    orientation = models.ForeignKey(Orientation, null=True, on_delete=models.SET_NULL)
+    objectif_particulier = models.ForeignKey(ObjectifParticulier, null=True, default=None, blank=True, on_delete=models.SET_NULL)
+    taxonomie = models.ForeignKey(Taxonomie, null=True, default=None, blank=True,  on_delete=models.SET_NULL)
+    orientation = models.ForeignKey(Orientation, null=True, default=None, blank=True, on_delete=models.SET_NULL)
     
     class Meta:
         unique_together = ('id', 'orientation')
@@ -157,7 +157,7 @@ class Cours(models.Model):
     type = models.CharField(max_length=30, blank=True)
     periode = models.IntegerField()
     nbre_note = models.IntegerField()
-    domaine = models.ForeignKey(Domaine, default=None,  null=True, on_delete=models.SET_NULL)
+    domaine = models.ForeignKey(Domaine, default=None,  null=True, blank=True, on_delete=models.SET_NULL)
     careum = models.CharField(max_length=30, default='')
     cursus = models.ManyToManyField(Cursus, blank=True)
     index_published = models.BooleanField(default=True)

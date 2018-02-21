@@ -4,23 +4,23 @@
 {% block coltype %}colMS{% endblock %}
 
 {% block content %}
-<div id="content-main" style="margin-left:200px">
-    <h1>Liste des cours</h1>
-    <table>
-        <tr>
-            <th>Nom du cours</th>
-            <th>Cursus concerné(s)</th>
-            <th style="text-align:right;">Périodes</th>
-        </tr>
-        {% for c in object_list %}
+    <div id="content-main" style="margin-left:200px">
+        <h1>Liste des cours</h1>
+        <table>
             <tr>
-                <td><a href="{% url 'cours' c.id %}">{{ c.nom }}</a></td>
-                <td>{{ c.cursus_txt }}</td>
-                <td style="width:100px;text-align:right">{{ c.periode }} pér.</td>
+                <th>Nom du cours</th>
+                <th>Cursus concerné(s)</th>
+                <th style="text-align:right;">Périodes</th>
             </tr>
-        {% endfor %}
-    </table>
-</div>
+            {% for c in object_list %}
+                <tr>
+                    <td><a href="{% url 'cours' c.id %}">{{ c.nom }}</a></td>
+                    <td>{{ c.cursus_txt }}</td>
+                    <td style="width:100px;text-align:right">{{ c.periode }} pér.</td>
+                </tr>
+            {% endfor %}
+        </table>
+    </div>
 {% endblock %}
 
 
