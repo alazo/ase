@@ -1,0 +1,29 @@
+{% extends "./base_site.html" %}
+{% load i18n static %}
+
+
+{% block coltype %}colMS{% endblock %}
+
+{% block content %}
+  <div id="content-main">
+    <h1>Compétences professionnelles</h1>
+    <h2>{{object.code}} - {{object.nom}}</h2>
+    <br/>
+    <h2>Objectifs particuliers</h2>
+
+    <div id="accordion">
+      {% for opa in object.objectifparticulier_set.all %}
+        <h3>{{opa.code}} - {{opa.nom}}</h3>
+        <div>
+          <table>
+            {% for oev in opa.objectifevaluateur_set.all %}
+              {% if oev.orientation.nom == 'Global' or oev.orientation.nom == 'Gén.'  %}
+                <tr><td width="10px"></td><td width="100px">{{oev.code}}&nbsp;&nbsp;{{oev.orientation.nom}}</td><td>{{oev.nom}} - ({{oev.taxonomie}})</td></tr>
+              {% endif %}
+            {% endfor %}
+          </table>
+        </div>
+    {% endfor %}
+    </div>
+  </div>
+{% endblock %}

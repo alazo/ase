@@ -30,7 +30,7 @@ class HomeViewMP(ListView):
     
 class CompetenceProfView(DetailView):
     model = Competence
-    template_name = 'pec/comp_prof_detail.html'
+    template_name = 'pec/comp_prof_detail2.html'
     exclude = ('tri',)
 
     
@@ -172,7 +172,7 @@ def plan_form_pdf(request, filiere):
     return response
 
 
-def json_objeval(pk):
+def json_objeval(request, pk):
     """Retourne les objectifs évaluateurs de l'obj. particulier PK
        et filtre sur les orientation Global et Gén uniquement
     """

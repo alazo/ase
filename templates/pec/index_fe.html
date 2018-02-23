@@ -24,20 +24,14 @@
 				<td class="l{{d.id}} d" ><a href="{% url 'competence-prof-liste' %}">{{ d.nom }}</a></td>
 				<td class="l{{d.id}}" >
 					{% for c in d.cours_fe_annee_1 %}
-						{% if d.abrev == "DOMSPE" %}
-							<a href="{% url 'seminaire' %}">{{ c.nom }} ({{ c.periode }} pér.)</a><br>
-						{% else %}
-							<a href="{% url 'cours' c.id %}">{{ c.nom }} ({{ c.periode }} pér.)</a><br>
-						{% endif %}
+
+							<a href="{% url 'cours' %}">{{ c.nom }} ({{ c.periode }} pér.)</a><br>
+
 					{% endfor %}
 				</td>
 				<td class="l{{d.id}}" >
 					{% for c in d.cours_fe_annee_2 %}
-						{% if d.abrev == "DOMSPE" %}
-							<a href="{% url 'seminaire' %}">{{ c.nom }} ({{ c.periode }} pér.)</a><br>
-						{% else %}
-							<a href="{% url 'cours' c.id %}">{{ c.nom }} ({{ c.periode }} pér.)</a><br>
-						{% endif %}
+							<a href="{% url 'cours' %}">{{ c.nom }} ({{ c.periode }} pér.)</a><br>
 					{% endfor %}
 				</td>
 				<td class="l{{d.id}}" >

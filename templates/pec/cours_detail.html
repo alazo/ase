@@ -51,7 +51,10 @@
 								<td>{{ s.titre }} :</td>
 								<td>{{ s.periode }} pér.</td>
 								<td>{{ s.careum }}</td>
-								<td>{{ s.get_objectifs_evaluateurs_txt }}</td>
+								<td>{% for oa in s.objectifs_evaluateurs.all %}
+									{{ oa.code }} - {{oa.orientation }}&nbsp;
+									{% endfor %}
+								</td>
 								<td>{{ s.contenu }}</td>
 							</tr>
 						{% endfor %}

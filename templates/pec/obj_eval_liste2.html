@@ -1,0 +1,51 @@
+{% extends "./base_site.html" %}
+{% load i18n static %}
+
+{% block coltype %}colMS{% endblock %}
+
+{% block content %}
+
+<script type="text/javascript">
+    $(document).ready(function(){
+        $("#obp_selector").on('change', function(){
+            $.ajax({
+                url : 'json_objeval/' + $(this).val(),
+                type : 'GET',
+                //data : 'id=' + $(this).val(),
+                dataType : 'json',
+                success : function(data, statut){
+                    var html = '';
+                    var sel = $("#json");
+                    sel.empty();
+                    html = '<table>'
+                    $.each(data, function(index) {
+                       html += '<tr><td width="100px">' + this.code + ' - ' + this.orientation + '</td>';
+                       html += '<td width="800px">' + this.nom
+                       html += '</td><td style="width:100px;text-align:center">' + this.taxonomie + '</td></tr>';
+                    });
+                    html += '</table>'
+                    sel.append(html);
+                }
+             });
+        });
+    });
+</script>
+
+<div id="content-main">
+    <h1>Objectifs particuliers et objectifs évaluateurs</h1>
+    <select id="obp_selector">
+        {% for obj in object_list %}
+            <option value={{obj.id}}>{{obj.code}} - {{obj.nom}}</option>
+        {% endfor %}
+    </select >
+    <table >
+        <tr>
+            <th width="100px">Code</th><th width="800px">Nom</th>
+            <th style="width:100px;text-align:center">Taxonomie</th>
+        </tr>
+    </table>
+    <div id="json"></div>
+</div>
+{% endblock %}
+
+

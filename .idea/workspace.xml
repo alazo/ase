@@ -2,8 +2,82 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="c4d35271-5974-4a45-846d-333aca6fca4a" name="Default" comment="">
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/templates/pec/comp_prof_detail2.html" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/templates/pec/obj_eval_liste2.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/pec/static/admin/fonts/Roboto-Bold-webfont.woff" afterPath="$PROJECT_DIR$/pec/static/admin/fonts/Roboto-Bold-webfont.woff" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/pec/static/admin/fonts/Roboto-Light-webfont.woff" afterPath="$PROJECT_DIR$/pec/static/admin/fonts/Roboto-Light-webfont.woff" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/pec/static/admin/fonts/Roboto-Regular-webfont.woff" afterPath="$PROJECT_DIR$/pec/static/admin/fonts/Roboto-Regular-webfont.woff" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/common/__init__.py" afterPath="$PROJECT_DIR$/common/__init__.py" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/common/settings.py" afterPath="$PROJECT_DIR$/common/settings.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/pdf/models.py" afterPath="$PROJECT_DIR$/pdf/models.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/common/urls.py" afterPath="$PROJECT_DIR$/common/urls.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/common/wsgi.py" afterPath="$PROJECT_DIR$/common/wsgi.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/pec/__init__.py" afterPath="$PROJECT_DIR$/pec/__init__.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/pec/admin.py" afterPath="$PROJECT_DIR$/pec/admin.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/pec/apps.py" afterPath="$PROJECT_DIR$/pec/apps.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/pec/forms.py" afterPath="$PROJECT_DIR$/pec/forms.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/pec/migrations/0001_initial.py" afterPath="$PROJECT_DIR$/pec/migrations/0001_initial.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/pec/migrations/0002_auto_20170531_0629.py" afterPath="$PROJECT_DIR$/pec/migrations/0002_auto_20170531_0629.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/pec/migrations/0003_auto_20170531_0633.py" afterPath="$PROJECT_DIR$/pec/migrations/0003_auto_20170531_0633.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/pec/migrations/0004_auto_20170531_0635.py" afterPath="$PROJECT_DIR$/pec/migrations/0004_auto_20170531_0635.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/pec/migrations/0005_auto_20170531_1017.py" afterPath="$PROJECT_DIR$/pec/migrations/0005_auto_20170531_1017.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/pec/migrations/0006_auto_20170601_0719.py" afterPath="$PROJECT_DIR$/pec/migrations/0006_auto_20170601_0719.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/pec/migrations/0007_auto_20170601_1557.py" afterPath="$PROJECT_DIR$/pec/migrations/0007_auto_20170601_1557.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/pec/migrations/0008_cours_domaine.py" afterPath="$PROJECT_DIR$/pec/migrations/0008_cours_domaine.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/pec/migrations/0009_cours_careum.py" afterPath="$PROJECT_DIR$/pec/migrations/0009_cours_careum.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/pec/migrations/0010_domaine_couleur.py" afterPath="$PROJECT_DIR$/pec/migrations/0010_domaine_couleur.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/pec/migrations/0011_cours_descr.py" afterPath="$PROJECT_DIR$/pec/migrations/0011_cours_descr.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/pec/migrations/0012_domaine_abrev.py" afterPath="$PROJECT_DIR$/pec/migrations/0012_domaine_abrev.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/pec/migrations/0013_cours_formation.py" afterPath="$PROJECT_DIR$/pec/migrations/0013_cours_formation.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/pec/migrations/0014_auto_20170604_0914.py" afterPath="$PROJECT_DIR$/pec/migrations/0014_auto_20170604_0914.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/pec/migrations/0015_cours_index_published.py" afterPath="$PROJECT_DIR$/pec/migrations/0015_cours_index_published.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/pec/migrations/0016_auto_20170606_1214.py" afterPath="$PROJECT_DIR$/pec/migrations/0016_auto_20170606_1214.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/pec/migrations/0017_auto_20170607_1543.py" afterPath="$PROJECT_DIR$/pec/migrations/0017_auto_20170607_1543.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/pec/migrations/0018_auto_20170608_1013.py" afterPath="$PROJECT_DIR$/pec/migrations/0018_auto_20170608_1013.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/pec/migrations/0019_auto_20170609_0826.py" afterPath="$PROJECT_DIR$/pec/migrations/0019_auto_20170609_0826.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/pec/migrations/0020_auto_20170609_1123.py" afterPath="$PROJECT_DIR$/pec/migrations/0020_auto_20170609_1123.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/pec/migrations/0021_cours_cursus_txt.py" afterPath="$PROJECT_DIR$/pec/migrations/0021_cours_cursus_txt.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/pec/migrations/0022_auto_20170609_1130.py" afterPath="$PROJECT_DIR$/pec/migrations/0022_auto_20170609_1130.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/pec/migrations/0023_auto_20170619_0616.py" afterPath="$PROJECT_DIR$/pec/migrations/0023_auto_20170619_0616.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/pec/migrations/0024_auto_20170619_0859.py" afterPath="$PROJECT_DIR$/pec/migrations/0024_auto_20170619_0859.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/pec/migrations/__init__.py" afterPath="$PROJECT_DIR$/pec/migrations/__init__.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/pec/models.py" afterPath="$PROJECT_DIR$/pec/models.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/pec/static/admin/css/base.css" afterPath="$PROJECT_DIR$/pec/static/admin/css/base.css" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/pec/static/admin/css/changelists.css" afterPath="$PROJECT_DIR$/pec/static/admin/css/changelists.css" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/pec/static/admin/css/dashboard.css" afterPath="$PROJECT_DIR$/pec/static/admin/css/dashboard.css" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/pec/static/admin/css/fonts.css" afterPath="$PROJECT_DIR$/pec/static/admin/css/fonts.css" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/pec/static/admin/css/forms.css" afterPath="$PROJECT_DIR$/pec/static/admin/css/forms.css" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/pec/static/admin/css/login.css" afterPath="$PROJECT_DIR$/pec/static/admin/css/login.css" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/pec/static/admin/css/rtl.css" afterPath="$PROJECT_DIR$/pec/static/admin/css/rtl.css" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/pec/static/admin/css/widgets.css" afterPath="$PROJECT_DIR$/pec/static/admin/css/widgets.css" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/pec/static/admin/fonts/LICENSE.txt" afterPath="$PROJECT_DIR$/pec/static/admin/fonts/LICENSE.txt" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/pec/static/admin/fonts/README.txt" afterPath="$PROJECT_DIR$/pec/static/admin/fonts/README.txt" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/pec/static/admin/img/LICENSE" afterPath="$PROJECT_DIR$/pec/static/admin/img/LICENSE" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/pec/static/admin/img/README.txt" afterPath="$PROJECT_DIR$/pec/static/admin/img/README.txt" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/pec/static/admin/img/calendar-icons.svg" afterPath="$PROJECT_DIR$/pec/static/admin/img/calendar-icons.svg" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/pec/static/admin/img/gis/move_vertex_off.svg" afterPath="$PROJECT_DIR$/pec/static/admin/img/gis/move_vertex_off.svg" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/pec/static/admin/img/gis/move_vertex_on.svg" afterPath="$PROJECT_DIR$/pec/static/admin/img/gis/move_vertex_on.svg" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/pec/static/admin/img/icon-addlink.svg" afterPath="$PROJECT_DIR$/pec/static/admin/img/icon-addlink.svg" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/pec/static/admin/img/icon-alert.svg" afterPath="$PROJECT_DIR$/pec/static/admin/img/icon-alert.svg" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/pec/static/admin/img/icon-calendar.svg" afterPath="$PROJECT_DIR$/pec/static/admin/img/icon-calendar.svg" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/pec/static/admin/img/icon-changelink.svg" afterPath="$PROJECT_DIR$/pec/static/admin/img/icon-changelink.svg" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/pec/static/admin/img/icon-clock.svg" afterPath="$PROJECT_DIR$/pec/static/admin/img/icon-clock.svg" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/pec/static/admin/img/icon-deletelink.svg" afterPath="$PROJECT_DIR$/pec/static/admin/img/icon-deletelink.svg" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/pec/static/admin/img/icon-no.svg" afterPath="$PROJECT_DIR$/pec/static/admin/img/icon-no.svg" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/pec/static/admin/img/icon-unknown-alt.svg" afterPath="$PROJECT_DIR$/pec/static/admin/img/icon-unknown-alt.svg" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/pec/static/admin/img/icon-unknown.svg" afterPath="$PROJECT_DIR$/pec/static/admin/img/icon-unknown.svg" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/pec/static/admin/img/icon-yes.svg" afterPath="$PROJECT_DIR$/pec/static/admin/img/icon-yes.svg" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/pec/static/admin/img/inline-delete.svg" afterPath="$PROJECT_DIR$/pec/static/admin/img/inline-delete.svg" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/pec/static/admin/img/search.svg" afterPath="$PROJECT_DIR$/pec/static/admin/img/search.svg" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/pec/static/admin/img/selector-icons.svg" afterPath="$PROJECT_DIR$/pec/static/admin/img/selector-icons.svg" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/pec/static/admin/img/sorting-icons.svg" afterPath="$PROJECT_DIR$/pec/static/admin/img/sorting-icons.svg" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/pec/static/admin/img/tooltag-add.svg" afterPath="$PROJECT_DIR$/pec/static/admin/img/tooltag-add.svg" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/pec/static/admin/img/tooltag-arrowright.svg" afterPath="$PROJECT_DIR$/pec/static/admin/img/tooltag-arrowright.svg" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/pec/static/css/main3.css" afterPath="$PROJECT_DIR$/pec/static/css/main3.css" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/pec/tests.py" afterPath="$PROJECT_DIR$/pec/tests.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/pec/views.py" afterPath="$PROJECT_DIR$/pec/views.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/templates/pec/cours_detail.html" afterPath="$PROJECT_DIR$/templates/pec/cours_detail.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/templates/pec/index_fe.html" afterPath="$PROJECT_DIR$/templates/pec/index_fe.html" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
@@ -17,8 +91,8 @@
       <file leaf-file-name="models.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/pec/models.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="208">
-              <caret line="184" column="40" lean-forward="true" selection-start-line="184" selection-start-column="40" selection-end-line="184" selection-end-column="40" />
+            <state relative-caret-position="226">
+              <caret line="122" column="50" lean-forward="true" selection-start-line="122" selection-start-column="50" selection-end-line="122" selection-end-column="50" />
               <folding>
                 <element signature="e#0#9#0" expanded="true" />
               </folding>
@@ -26,33 +100,53 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name=".gitignore" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/.gitignore">
+      <file leaf-file-name="obj_eval_liste.html" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/templates/pec/obj_eval_liste.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="162">
-              <caret line="9" column="7" lean-forward="false" selection-start-line="9" selection-start-column="7" selection-end-line="9" selection-end-column="7" />
+            <state relative-caret-position="450">
+              <caret line="25" column="37" lean-forward="true" selection-start-line="25" selection-start-column="37" selection-end-line="25" selection-end-column="37" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="settings.py" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/common/settings.py">
+      <file leaf-file-name="views.py" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/pec/views.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="144">
+              <caret line="19" column="57" lean-forward="true" selection-start-line="19" selection-start-column="57" selection-end-line="19" selection-end-column="57" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="index_fe.html" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/templates/pec/index_fe.html">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="486">
+              <caret line="27" column="52" lean-forward="true" selection-start-line="27" selection-start-column="52" selection-end-line="27" selection-end-column="52" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="urls.py" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/common/urls.py">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="774">
-              <caret line="114" column="44" lean-forward="false" selection-start-line="114" selection-start-column="44" selection-end-line="114" selection-end-column="44" />
+              <caret line="48" column="65" lean-forward="false" selection-start-line="48" selection-start-column="65" selection-end-line="48" selection-end-column="65" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="models.py" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/pdf/models.py">
+      <file leaf-file-name="cours_detail.html" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/templates/pec/cours_detail.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="414">
-              <caret line="121" column="29" lean-forward="false" selection-start-line="121" selection-start-column="29" selection-end-line="121" selection-end-column="29" />
+            <state relative-caret-position="558">
+              <caret line="55" column="48" lean-forward="false" selection-start-line="55" selection-start-column="48" selection-end-line="55" selection-end-column="48" />
               <folding>
-                <element signature="e#1#33#0" expanded="true" />
+                <element signature="e#1339#1345#0" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -78,7 +172,6 @@
         <option value="$PROJECT_DIR$/old_scripts.py" />
         <option value="$PROJECT_DIR$/templates/pec/document_list.html" />
         <option value="$PROJECT_DIR$/templates/pec/index.html" />
-        <option value="$PROJECT_DIR$/templates/pec/index_fe.html" />
         <option value="$PROJECT_DIR$/templates/pec/index_mp.html" />
         <option value="$PROJECT_DIR$/templates/pec/obj_eval_liste.html" />
         <option value="$PROJECT_DIR$/templates/pec/periode.html" />
@@ -90,13 +183,10 @@
         <option value="$PROJECT_DIR$/templates/pec/comp_prof_liste.html" />
         <option value="$PROJECT_DIR$/templates/pec/cours.html" />
         <option value="$PROJECT_DIR$/templates/pec/cours_admin.html" />
-        <option value="$PROJECT_DIR$/templates/pec/cours_detail.html" />
         <option value="$PROJECT_DIR$/templates/pec/document_detail.html" />
         <option value="$PROJECT_DIR$/templates/pec/en_travail.html" />
         <option value="$PROJECT_DIR$/pec/forms.py" />
-        <option value="$PROJECT_DIR$/pec/views.py" />
         <option value="$PROJECT_DIR$/common/urls.py" />
-        <option value="$PROJECT_DIR$/pec/models.py" />
         <option value="$PROJECT_DIR$/templates/pec/base.html" />
         <option value="$PROJECT_DIR$/templates/pec/base_site.html" />
         <option value="$PROJECT_DIR$/common/wsgi.py" />
@@ -104,6 +194,12 @@
         <option value="$PROJECT_DIR$/.gitignore" />
         <option value="$PROJECT_DIR$/common/settings.py" />
         <option value="$PROJECT_DIR$/pdf/models.py" />
+        <option value="$PROJECT_DIR$/templates/pec/comp_prof_detail2.html" />
+        <option value="$PROJECT_DIR$/pec/views.py" />
+        <option value="$PROJECT_DIR$/pec/models.py" />
+        <option value="$PROJECT_DIR$/templates/pec/cours_detail.html" />
+        <option value="$PROJECT_DIR$/templates/pec/index_fe.html" />
+        <option value="$PROJECT_DIR$/pec/static/css/main3.css" />
       </list>
     </option>
   </component>
@@ -128,6 +224,7 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
+      <pane id="Scratches" />
       <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
@@ -166,13 +263,14 @@
               <item name="ase" type="b2602c69:ProjectViewProjectNode" />
               <item name="ase" type="462c0819:PsiDirectoryNode" />
               <item name="pec" type="462c0819:PsiDirectoryNode" />
-              <item name="migrations" type="462c0819:PsiDirectoryNode" />
+              <item name="static" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="ase" type="b2602c69:ProjectViewProjectNode" />
               <item name="ase" type="462c0819:PsiDirectoryNode" />
               <item name="pec" type="462c0819:PsiDirectoryNode" />
               <item name="static" type="462c0819:PsiDirectoryNode" />
+              <item name="css" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="ase" type="b2602c69:ProjectViewProjectNode" />
@@ -183,20 +281,45 @@
             </path>
             <path>
               <item name="ase" type="b2602c69:ProjectViewProjectNode" />
+              <item name="ase" type="462c0819:PsiDirectoryNode" />
+              <item name="pec" type="462c0819:PsiDirectoryNode" />
+              <item name="models.py" type="8704e2dd:PyFileNode" />
+            </path>
+            <path>
+              <item name="ase" type="b2602c69:ProjectViewProjectNode" />
+              <item name="ase" type="462c0819:PsiDirectoryNode" />
+              <item name="pec" type="462c0819:PsiDirectoryNode" />
+              <item name="views.py" type="8704e2dd:PyFileNode" />
+            </path>
+            <path>
+              <item name="ase" type="b2602c69:ProjectViewProjectNode" />
+              <item name="ase" type="462c0819:PsiDirectoryNode" />
+              <item name="templates" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="ase" type="b2602c69:ProjectViewProjectNode" />
+              <item name="ase" type="462c0819:PsiDirectoryNode" />
+              <item name="templates" type="462c0819:PsiDirectoryNode" />
+              <item name="pec" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="ase" type="b2602c69:ProjectViewProjectNode" />
               <item name="External Libraries" type="cb654da1:ExternalLibrariesNode" />
             </path>
           </expand>
           <select />
         </subPane>
       </pane>
-      <pane id="Scratches" />
     </panes>
   </component>
   <component name="PropertiesComponent">
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/../epcstages" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="settings.editor.selected.configurable" value="com.jetbrains.python.configuration.PyActiveSdkModuleConfigurable" />
   </component>
   <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/templates/pec" />
+    </key>
     <key name="MoveFile.RECENT_KEYS">
       <recent name="$PROJECT_DIR$/pec/static/img" />
     </key>
@@ -227,7 +350,7 @@
     <servers />
   </component>
   <component name="ToolWindowManager">
-    <frame x="65" y="52" width="1855" height="1148" extended-state="6" />
+    <frame x="65" y="24" width="1855" height="1176" extended-state="6" />
     <editor active="true" />
     <layout>
       <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.24959569" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
@@ -261,20 +384,6 @@
     <watches-manager />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/pec/views.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="2826">
-          <caret line="168" column="20" lean-forward="false" selection-start-line="164" selection-start-column="4" selection-end-line="171" selection-end-column="19" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/pdf/models.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$USER_HOME$/.virtualenvs/asepec/lib/python3.4/site-packages/reportlab/pdfgen/canvas.py" />
     <entry file="file://$PROJECT_DIR$/pec/views.py">
       <provider selected="true" editor-type-id="text-editor">
@@ -304,38 +413,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/templates/pec/comp_prof_detail.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="540">
-          <caret line="30" column="12" lean-forward="false" selection-start-line="30" selection-start-column="12" selection-end-line="30" selection-end-column="12" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/templates/pec/comp_prof_liste.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="288">
-          <caret line="16" column="10" lean-forward="false" selection-start-line="6" selection-start-column="4" selection-end-line="16" selection-end-column="10" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/templates/pec/cours.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="396">
-          <caret line="22" column="10" lean-forward="false" selection-start-line="6" selection-start-column="4" selection-end-line="22" selection-end-column="10" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/templates/pec/cours_admin.html">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="144">
           <caret line="8" column="19" lean-forward="false" selection-start-line="8" selection-start-column="19" selection-end-line="8" selection-end-column="19" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/templates/pec/cours_detail.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="791">
-          <caret line="78" column="7" lean-forward="false" selection-start-line="78" selection-start-column="7" selection-end-line="78" selection-end-column="7" />
         </state>
       </provider>
     </entry>
@@ -357,13 +438,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="252">
           <caret line="14" column="0" lean-forward="true" selection-start-line="14" selection-start-column="0" selection-end-line="14" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/templates/pec/obj_eval_liste.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="450">
-          <caret line="25" column="37" lean-forward="true" selection-start-line="25" selection-start-column="37" selection-end-line="25" selection-end-column="37" />
         </state>
       </provider>
     </entry>
@@ -414,13 +488,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/templates/pec/index_fe.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="840">
-          <caret line="52" column="6" lean-forward="false" selection-start-line="52" selection-start-column="6" selection-end-line="52" selection-end-column="6" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/templates/pec/index.html">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="594">
@@ -432,35 +499,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="918">
           <caret line="51" column="4" lean-forward="false" selection-start-line="51" selection-start-column="4" selection-end-line="51" selection-end-column="4" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/common/urls.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="864">
-          <caret line="48" column="65" lean-forward="false" selection-start-line="48" selection-start-column="65" selection-end-line="48" selection-end-column="65" />
-          <folding>
-            <element signature="e#637#665#0" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/pec/views.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="126">
-          <caret line="18" column="27" lean-forward="false" selection-start-line="18" selection-start-column="27" selection-end-line="18" selection-end-column="27" />
-          <folding>
-            <element signature="e#0#11#0" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/pec/static/css/main3.css">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1116">
-          <caret line="62" column="30" lean-forward="false" selection-start-line="62" selection-start-column="30" selection-end-line="62" selection-end-column="30" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -468,7 +506,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="216">
           <caret line="12" column="0" lean-forward="false" selection-start-line="12" selection-start-column="0" selection-end-line="12" selection-end-column="0" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -476,44 +513,12 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="36">
           <caret line="2" column="87" lean-forward="false" selection-start-line="2" selection-start-column="87" selection-end-line="2" selection-end-column="87" />
-          <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/old_scripts.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="144">
-          <caret line="8" column="0" lean-forward="false" selection-start-line="8" selection-start-column="0" selection-end-line="8" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/pec/models.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="208">
-          <caret line="184" column="40" lean-forward="true" selection-start-line="184" selection-start-column="40" selection-end-line="184" selection-end-column="40" />
-          <folding>
-            <element signature="e#0#9#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/.project">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/.pydevproject">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
+    <entry file="file://$PROJECT_DIR$/old_scripts.py" />
+    <entry file="file://$PROJECT_DIR$/.project" />
+    <entry file="file://$PROJECT_DIR$/.pydevproject" />
     <entry file="file://$PROJECT_DIR$/common/wsgi.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="576">
@@ -534,7 +539,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
           <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -542,7 +546,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="180">
           <caret line="12" column="0" lean-forward="true" selection-start-line="12" selection-start-column="0" selection-end-line="12" selection-end-column="0" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -550,7 +553,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
           <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -558,7 +560,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
           <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -566,7 +567,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
           <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -574,14 +574,14 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
           <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/dump.sql">
+    <entry file="file://$PROJECT_DIR$/dump.sql" />
+    <entry file="file://$PROJECT_DIR$/common/settings.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-1026">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+        <state relative-caret-position="2052">
+          <caret line="114" column="44" lean-forward="false" selection-start-line="114" selection-start-column="44" selection-end-line="114" selection-end-column="44" />
           <folding />
         </state>
       </provider>
@@ -590,25 +590,116 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="162">
           <caret line="9" column="7" lean-forward="false" selection-start-line="9" selection-start-column="7" selection-end-line="9" selection-end-column="7" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/common/settings.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="774">
-          <caret line="114" column="44" lean-forward="false" selection-start-line="114" selection-start-column="44" selection-end-line="114" selection-end-column="44" />
-          <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/pdf/models.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="414">
+        <state relative-caret-position="1998">
           <caret line="121" column="29" lean-forward="false" selection-start-line="121" selection-start-column="29" selection-end-line="121" selection-end-column="29" />
           <folding>
             <element signature="e#1#33#0" expanded="true" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/templates/pec/cours.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="252">
+          <caret line="14" column="38" lean-forward="false" selection-start-line="14" selection-start-column="38" selection-end-line="14" selection-end-column="38" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/templates/pec/comp_prof_liste.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="234">
+          <caret line="13" column="21" lean-forward="true" selection-start-line="13" selection-start-column="21" selection-end-line="13" selection-end-column="21" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/templates/pec/comp_prof_detail.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="540">
+          <caret line="30" column="12" lean-forward="false" selection-start-line="30" selection-start-column="12" selection-end-line="30" selection-end-column="12" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/templates/pec/comp_prof_detail2.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="360">
+          <caret line="20" column="35" lean-forward="false" selection-start-line="20" selection-start-column="35" selection-end-line="20" selection-end-column="35" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/templates/pec/obj_eval_liste.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="450">
+          <caret line="25" column="37" lean-forward="true" selection-start-line="25" selection-start-column="37" selection-end-line="25" selection-end-column="37" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/templates/pec/obj_eval_liste2.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/pec/models.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="226">
+          <caret line="122" column="50" lean-forward="true" selection-start-line="122" selection-start-column="50" selection-end-line="122" selection-end-column="50" />
+          <folding>
+            <element signature="e#0#9#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/templates/pec/cours_detail.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="558">
+          <caret line="55" column="48" lean-forward="false" selection-start-line="55" selection-start-column="48" selection-end-line="55" selection-end-column="48" />
+          <folding>
+            <element signature="e#1339#1345#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/common/urls.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="774">
+          <caret line="48" column="65" lean-forward="false" selection-start-line="48" selection-start-column="65" selection-end-line="48" selection-end-column="65" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/pec/views.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="144">
+          <caret line="19" column="57" lean-forward="true" selection-start-line="19" selection-start-column="57" selection-end-line="19" selection-end-column="57" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/pec/static/css/main3.css">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1007">
+          <caret line="127" column="19" lean-forward="true" selection-start-line="127" selection-start-column="19" selection-end-line="127" selection-end-column="19" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/templates/pec/index_fe.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="486">
+          <caret line="27" column="52" lean-forward="true" selection-start-line="27" selection-start-column="52" selection-end-line="27" selection-end-column="52" />
+          <folding />
         </state>
       </provider>
     </entry>
